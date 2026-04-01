@@ -6,24 +6,31 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTheme {
   static ThemeData get lightTheme =>
-      _buildTheme(AppColorsExtension.light, Brightness.dark);
+      _buildTheme(AppColorsExtension.light, Brightness.light);
   static ThemeData get darkTheme =>
-      _buildTheme(AppColorsExtension.dark, Brightness.light);
+      _buildTheme(AppColorsExtension.dark, Brightness.dark);
 
   static ThemeData _buildTheme(
     AppColorsExtension colors,
-    Brightness statusIconBrightness,
+    Brightness brightness,
   ) {
     return ThemeData(
       fontFamily: 'Poppins',
       scaffoldBackgroundColor: colors.background,
+
+      // 2. إضافة الـ canvasColor بنفس لون الخلفية بيقضي على "الومضة البيضاء" بين الصفحات
       extensions: [colors],
       textSelectionTheme: TextSelectionThemeData(
         cursorColor: colors.primary,
         selectionColor: colors.primary.withValues(alpha: 0.3),
         selectionHandleColor: colors.primary,
       ),
-
+      canvasColor: colors.background,
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: colors.primary,
+        brightness: brightness,
+        surface: colors.surface,
+      ),
       // 🟢 TextField Theme
       inputDecorationTheme: InputDecorationTheme(
         isDense: true,
@@ -106,9 +113,13 @@ class AppTheme {
         elevation: 0,
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: Colors.transparent,
-          statusBarIconBrightness: statusIconBrightness,
+          statusBarIconBrightness: brightness == Brightness.dark
+              ? Brightness.light
+              : Brightness.dark,
           systemNavigationBarColor: colors.background,
-          systemNavigationBarIconBrightness: statusIconBrightness,
+          systemNavigationBarIconBrightness: brightness == Brightness.dark
+              ? Brightness.light
+              : Brightness.dark,
         ),
       ),
 
