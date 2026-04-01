@@ -1,0 +1,9 @@
+class ImageIcons {}
+
+class AppImages {
+  static const String assetsImagePath = 'assets/images/';
+  static const String onboarding1 = '${assetsImagePath}onboarding_1.png';
+  static const String onboarding2 = '${assetsImagePath}onboarding_2.png';
+  static const String onboarding3 = '${assetsImagePath}onboarding_3.png';
+  static const String onboarding4 = '${assetsImagePath}onboarding_4.png';
+}
