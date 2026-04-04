@@ -12,12 +12,9 @@ class CustomShimmer extends StatelessWidget {
     this.shape = BoxShape.rectangle,
   });
 
-  const CustomShimmer.circle({
-    super.key,
-    this.height,
-    this.width,
-  })  : borderRadius = null,
-        shape = BoxShape.circle;
+  const CustomShimmer.circle({super.key, this.height, this.width})
+    : borderRadius = null,
+      shape = BoxShape.circle;
 
   final double? height;
   final double? width;
@@ -27,13 +24,13 @@ class CustomShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: context.customColors.surface,
+      baseColor: context.customColors.inputs,
       highlightColor: context.customColors.background,
       child: Container(
         height: height,
         width: width,
         decoration: BoxDecoration(
-          color: context.customColors.surface,
+          color: context.customColors.inputs,
           shape: shape,
           borderRadius: shape == BoxShape.rectangle
               ? BorderRadius.circular(borderRadius ?? 4.r)

@@ -13,7 +13,7 @@ class ErrorText extends StatelessWidget {
       style: context.textTheme.bodyMedium?.copyWith(
         fontSize: 14.sp,
         fontWeight: FontWeight.w500,
-        color: context.customColors.textPrimary,
+        color: context.customColors.mainText,
       ),
       textAlign: TextAlign.center,
     );

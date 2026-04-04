@@ -25,7 +25,7 @@ class CustomText extends StatelessWidget {
       style: context.textTheme.bodyLarge?.copyWith(
         fontSize: fontSize,
         fontWeight: fontWeight,
-        color: textColor ?? context.customColors.textPrimary,
+        color: textColor ?? context.customColors.mainText,
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:evently/core/navigation/app_routes.dart';
+import 'package:evently/features/login/presenation/views/login_view.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppRouter {
@@ -7,12 +8,7 @@ abstract class AppRouter {
     try {
       switch (name) {
         case AppRoutes.loginView:
-          // return MaterialPageRoute(
-          //   builder: (context) => BlocProvider(
-          //     create: (context) => getIt.get<LoginBloc>(),
-          //     child: const LoginView(),
-          //   ),
-          // );
+          return MaterialPageRoute(builder: (context) => const LoginView());
         default:
           return _errorRoute();
       }

@@ -18,9 +18,11 @@ class OnboardingPageView extends StatelessWidget {
       child: PageView.builder(
         controller: controller,
         onPageChanged: onPageChanged,
-        itemCount: OnboardingModel.onboardingData.length,
+        itemCount: OnboardingModel.onboardingData(context).length,
         itemBuilder: (context, index) {
-          return Image.asset(OnboardingModel.onboardingData[index].image);
+          return Image.asset(
+            OnboardingModel.onboardingData(context)[index].image,
+          );
         },
       ),
     );

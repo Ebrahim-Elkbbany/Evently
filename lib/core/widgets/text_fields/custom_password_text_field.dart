@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'custom_text_form_field.dart';
 
 class CustomPasswordTextField extends StatefulWidget {
@@ -16,7 +17,8 @@ class CustomPasswordTextField extends StatefulWidget {
   });
 
   @override
-  State<CustomPasswordTextField> createState() => _CustomPasswordTextFieldState();
+  State<CustomPasswordTextField> createState() =>
+      _CustomPasswordTextFieldState();
 }
 
 class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
@@ -25,6 +27,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
+      prefixIcon: Icons.lock_outline,
       hintText: widget.hintText,
       controller: widget.controller,
       validator: widget.validator,

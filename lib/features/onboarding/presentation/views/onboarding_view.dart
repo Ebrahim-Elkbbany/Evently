@@ -48,7 +48,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                 },
                 nextButtonOntap: () {
                   if (currentIndex ==
-                      OnboardingModel.onboardingData.length - 1) {
+                      OnboardingModel.onboardingData(context).length - 1) {
                   } else {
                     controller!.nextPage(
                       duration: const Duration(milliseconds: 500),

@@ -39,12 +39,13 @@ class CustomButton extends StatelessWidget {
           ),
         ),
         child: isLoading
-            ? ButtonLoadingIndicator(color: context.customColors.textPrimary)
+            ? ButtonLoadingIndicator(color: context.customColors.mainText)
             : Text(
                 buttonName,
-                style: textStyle ??
+                style:
+                    textStyle ??
                     context.textTheme.titleMedium?.copyWith(
-                      color: context.customColors.textPrimary,
+                      color: context.customColors.mainText,
                       fontWeight: FontWeight.bold,
                     ),
               ),

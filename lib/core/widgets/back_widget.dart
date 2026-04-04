@@ -17,7 +17,6 @@ class BackWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Align(
       alignment: AlignmentDirectional.centerStart,
       child: GestureDetector(
@@ -26,7 +25,7 @@ class BackWidget extends StatelessWidget {
           width: 45.w,
           height: 45.h,
           decoration: BoxDecoration(
-            color: backgroundColor ?? context.customColors.disabledColor,
+            color: backgroundColor ?? context.customColors.stroke,
             borderRadius: BorderRadius.circular(8.r),
           ),
           child: Icon(

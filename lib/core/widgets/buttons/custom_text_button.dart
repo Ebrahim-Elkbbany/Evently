@@ -21,8 +21,9 @@ class CustomTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: alignment ?? Alignment.center,
+      alignment: alignment ?? AlignmentDirectional.bottomCenter,
       child: TextButton(
+        
         onPressed: onPressed,
         style: TextButton.styleFrom(
           padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
@@ -31,11 +32,13 @@ class CustomTextButton extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: textStyle ?? context.textTheme.bodyMedium?.copyWith(
-            color: color ?? context.customColors.primary,
-            fontWeight: FontWeight.w600,
-            fontSize: 14.sp,
-          ),
+          style:
+              textStyle ??
+              context.textTheme.bodyMedium?.copyWith(
+                color: color ?? context.customColors.primary,
+                fontWeight: FontWeight.w600,
+                fontSize: 14.sp,
+              ),
         ),
       ),
     );

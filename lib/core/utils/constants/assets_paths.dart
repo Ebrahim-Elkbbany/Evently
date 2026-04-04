@@ -6,4 +6,6 @@ class AppImages {
   static const String onboarding2 = '${assetsImagePath}onboarding_2.png';
   static const String onboarding3 = '${assetsImagePath}onboarding_3.png';
   static const String onboarding4 = '${assetsImagePath}onboarding_4.png';
+  static const String logoLight = '${assetsImagePath}logo_light.png';
+  static const String logoDark = '${assetsImagePath}logo_dark.png';
 }

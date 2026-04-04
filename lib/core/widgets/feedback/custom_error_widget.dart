@@ -1,6 +1,7 @@
-import 'package:evently/generated/l10n.dart';
+import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'error_back_button.dart';
 import 'error_icon.dart';
 import 'error_text.dart';
@@ -22,8 +23,6 @@ class CustomErrorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = S.of(context);
-
     return Stack(
       children: [
         if (hasBackButton) ErrorBackButton(onTap: onBackTap),
@@ -35,7 +34,7 @@ class CustomErrorWidget extends StatelessWidget {
               const ErrorIcon(),
               SizedBox(height: 12.h),
               ErrorText(
-                message: errorMessage ?? s.somethingWentWrong,
+                message: errorMessage ?? context.lan.somethingWentWrong,
               ),
               SizedBox(height: 20.h),
               RetryButton(onPressed: onRetry),

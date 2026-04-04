@@ -1,10 +1,8 @@
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/widgets/custom_text.dart';
 import 'package:evently/core/widgets/feedback/retry_button.dart';
-import 'package:evently/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 class CustomEmptyWidget extends StatelessWidget {
   final String? title;
@@ -22,7 +20,6 @@ class CustomEmptyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = S.of(context);
     return Center(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.w),
@@ -32,21 +29,21 @@ class CustomEmptyWidget extends StatelessWidget {
             Icon(
               icon ?? Icons.inbox_outlined,
               size: 80.sp,
-              color: context.customColors.disabledColor,
+              color: context.customColors.stroke,
             ),
             SizedBox(height: 16.h),
             CustomText(
-              text: title ?? s.noDataFound,
+              text: title ?? context.lan.noDataFound,
               fontSize: 18.sp,
               fontWeight: FontWeight.w600,
-              textColor: context.customColors.textPrimary,
+              textColor: context.customColors.mainText,
             ),
             if (subtitle != null) ...[
               SizedBox(height: 8.h),
               CustomText(
                 text: subtitle!,
                 fontSize: 14.sp,
-                textColor: context.customColors.textSecondary,
+                textColor: context.customColors.secondaryText,
                 textAlign: TextAlign.center,
               ),
             ],

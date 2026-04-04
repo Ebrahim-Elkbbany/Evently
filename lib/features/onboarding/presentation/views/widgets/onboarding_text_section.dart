@@ -13,7 +13,7 @@ class OnboardingTextSection extends StatelessWidget {
     return Column(
       children: [
         Text(
-          OnboardingModel.onboardingData[currentIndex].title,
+          OnboardingModel.onboardingData(context)[currentIndex].title,
           style: FontStyles.font20SemiBold.copyWith(
             color: context.customColors.primary,
             fontSize: 24,
@@ -21,9 +21,9 @@ class OnboardingTextSection extends StatelessWidget {
           ),
         ),
         context.gapH(30),
-        if (OnboardingModel.onboardingData[currentIndex].subtitle != null)
+        if (OnboardingModel.onboardingData(context)[currentIndex].subtitle != null)
           Text(
-            OnboardingModel.onboardingData[currentIndex].subtitle!,
+            OnboardingModel.onboardingData(context)[currentIndex].subtitle!,
             textAlign: TextAlign.center,
             style: FontStyles.font20SemiBold.copyWith(
               color: context.customColors.primary,

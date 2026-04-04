@@ -23,7 +23,7 @@ class UpperTextFieldText extends StatelessWidget {
       children: [
         CustomText(
           text: text,
-          textColor: textColor ?? context.customColors.textPrimary,
+          textColor: textColor ?? context.customColors.mainText,
           fontWeight: fontWeight ?? FontWeight.w600,
           fontSize: fontSize ?? 14.sp,
         ),

@@ -22,7 +22,7 @@ class ImageErrorPlaceholder extends StatelessWidget {
       height: height?.h,
       width: width?.w,
       decoration: BoxDecoration(
-        color: context.customColors.disabledColor.withValues(alpha: 0.05),
+        color: context.customColors.stroke.withValues(alpha: 0.05),
         shape: shape,
         borderRadius: shape == BoxShape.rectangle 
             ? BorderRadius.circular(borderRadius?.r ?? 12.r) 
@@ -30,7 +30,7 @@ class ImageErrorPlaceholder extends StatelessWidget {
       ),
       child: Icon(
         Icons.broken_image_outlined,
-        color: context.customColors.disabledColor,
+        color: context.customColors.stroke,
         size: 24.sp,
       ),
     );

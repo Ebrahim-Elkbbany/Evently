@@ -37,13 +37,15 @@ class OnboardingBottomSection extends StatelessWidget {
               size: Size(7.r, 7.r),
               spacing: EdgeInsets.symmetric(horizontal: 5.w),
             ),
-            dotsCount: OnboardingModel.onboardingData.length,
+            dotsCount: OnboardingModel.onboardingData(context).length,
             position: currentIndex.toDouble(),
           ),
           const Spacer(),
           CustomTextButton(
             onPressed: nextButtonOntap ?? () {},
-            text: currentIndex == OnboardingModel.onboardingData.length - 1
+            text:
+                currentIndex ==
+                    OnboardingModel.onboardingData(context).length - 1
                 ? 'Finish'
                 : 'Next',
           ),

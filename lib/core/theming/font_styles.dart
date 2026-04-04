@@ -3,6 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FontStyles {
+  static TextStyle font24SemiBold = TextStyle(
+    fontWeight: FontWeightHelper.semiBold,
+    fontSize: 24.sp,
+    fontFamily: "Poppins",
+  );
+    static TextStyle font14Regular = TextStyle(
+    fontWeight: FontWeightHelper.regular,
+    fontSize: 14.sp,
+  );
   static TextStyle font50SemiBold = TextStyle(
     fontWeight: FontWeightHelper.semiBold,
     fontSize: 50.sp,

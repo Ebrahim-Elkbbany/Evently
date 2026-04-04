@@ -5,8 +5,6 @@ import 'package:evently/core/widgets/feedback/error_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:evently/generated/l10n.dart';
-
 class CustomErrorDialog extends StatelessWidget {
   final String errorMessage;
   final VoidCallback? onRetry;
@@ -19,10 +17,9 @@ class CustomErrorDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = S.of(context);
     return AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.r)),
-      backgroundColor: context.customColors.surface,
+      backgroundColor: context.customColors.inputs,
       contentPadding: EdgeInsets.fromLTRB(20.w, 20.h, 20.w, 10.h),
       content: Column(
         mainAxisSize: MainAxisSize.min,
@@ -37,14 +34,14 @@ class CustomErrorDialog extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CustomTextButton(
-              text: s.close,
+              text: context.lan.close,
               onPressed: () => Navigator.pop(context),
-              color: context.customColors.textSecondary,
+              color: context.customColors.secondaryText,
             ),
             if (onRetry != null) ...[
               context.gapW(8),
               CustomTextButton(
-                text: s.Retry,
+                text: context.lan.retry,
                 onPressed: () {
                   Navigator.pop(context);
                   onRetry!();
