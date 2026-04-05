@@ -337,4 +337,40 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sign_up_with_google => 'إنشاء حساب باستخدام جوجل';
+
+  @override
+  String get the_password_provided_is_too_weak => 'كلمة المرور ضعيفة جداً';
+
+  @override
+  String get the_account_already_exists_for_that_email =>
+      'الحساب موجود بالفعل لهذا البريد الإلكتروني';
+
+  @override
+  String get some_thing_went_wrong => 'حدث خطأ ما';
+
+  @override
+  String get name_is_required => 'الاسم مطلوب';
+
+  @override
+  String get email_is_required => 'البريد الإلكتروني مطلوب';
+
+  @override
+  String get password_is_required => 'كلمة المرور مطلوبة';
+
+  @override
+  String get week_password => ' كلمة المرور ضعيفة';
+
+  @override
+  String get confirm_password_is_required => 'تأكيد كلمة المرور مطلوب';
+
+  @override
+  String get passwords_do_not_match => 'كلمات المرور غير متطابقة';
+
+  @override
+  String get no_user_found_for_that_email =>
+      'لا يوجد مستخدم لهذا البريد الإلكتروني.';
+
+  @override
+  String get wrong_password_provided_for_that_user =>
+      'كلمة المرور المقدمة خاطئة لهذا المستخدم  ';
 }

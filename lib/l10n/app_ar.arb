@@ -111,5 +111,16 @@
   "book_club": "نادي كتاب",
   "all": "الكل",
   "exhibition": "معرض",
-  "sign_up_with_google": "إنشاء حساب باستخدام جوجل"
+  "sign_up_with_google": "إنشاء حساب باستخدام جوجل",
+  "the_password_provided_is_too_weak":"كلمة المرور ضعيفة جداً",
+  "the_account_already_exists_for_that_email":"الحساب موجود بالفعل لهذا البريد الإلكتروني",
+  "some_thing_went_wrong":"حدث خطأ ما",
+  "name_is_required":"الاسم مطلوب",
+  "email_is_required":"البريد الإلكتروني مطلوب",
+  "password_is_required":"كلمة المرور مطلوبة",
+  "week_password":" كلمة المرور ضعيفة",
+  "confirm_password_is_required":"تأكيد كلمة المرور مطلوب",
+  "passwords_do_not_match":"كلمات المرور غير متطابقة",
+  "no_user_found_for_that_email":"لا يوجد مستخدم لهذا البريد الإلكتروني.",
+  "wrong_password_provided_for_that_user":"كلمة المرور المقدمة خاطئة لهذا المستخدم  "
 }

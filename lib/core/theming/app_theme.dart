@@ -85,7 +85,9 @@ class AppTheme {
         ),
         titleLarge: FontStyles.font20Medium.copyWith(color: colors.white),
         titleMedium: FontStyles.font18Medium.copyWith(color: colors.primary),
-        bodyLarge: FontStyles.font16SemiBold.copyWith(color: colors.mainText),
+        displayLarge: FontStyles.font16Regular.copyWith(color: colors.primary),
+        titleSmall: FontStyles.font16SemiBold.copyWith(color: colors.mainText),
+        bodyLarge: FontStyles.font14Regular.copyWith(color: colors.mainText),
         bodyMedium: FontStyles.font16Regular.copyWith(
           color: colors.secondaryText,
         ),

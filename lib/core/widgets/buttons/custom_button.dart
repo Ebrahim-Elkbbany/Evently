@@ -32,7 +32,6 @@ class CustomButton extends StatelessWidget {
       width: width ?? double.infinity,
       child: ElevatedButton(
         onPressed: isLoading ? null : onPressed,
-        
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor ?? context.customColors.primary,
           shape: RoundedRectangleBorder(
@@ -40,7 +39,7 @@ class CustomButton extends StatelessWidget {
           ),
         ),
         child: isLoading
-            ? ButtonLoadingIndicator(color: context.customColors.mainText)
+            ? ButtonLoadingIndicator(color: context.customColors.primary)
             : Text(
                 buttonName,
                 style: textStyle ?? context.textTheme.titleLarge,

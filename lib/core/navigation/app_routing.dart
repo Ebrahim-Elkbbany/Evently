@@ -1,7 +1,10 @@
 import 'package:evently/core/navigation/app_routes.dart';
+import 'package:evently/features/login/presenation/manager/login_provider.dart';
 import 'package:evently/features/login/presenation/views/login_view.dart';
+import 'package:evently/features/sign_up/presenation/manager/sign_up_provider.dart';
 import 'package:evently/features/sign_up/presenation/views/sign_up_view.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 abstract class AppRouter {
   static Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {
@@ -9,9 +12,19 @@ abstract class AppRouter {
     try {
       switch (name) {
         case AppRoutes.loginView:
-          return MaterialPageRoute(builder: (context) => const LoginView());
+          return MaterialPageRoute(
+            builder: (context) => ChangeNotifierProvider(
+              create: (context) => LoginProvider(),
+              child: const LoginView(),
+            ),
+          );
         case AppRoutes.signUpView:
-          return MaterialPageRoute(builder: (context) => const SignUpView());
+          return MaterialPageRoute(
+            builder: (context) => ChangeNotifierProvider(
+              create: (context) => SignUpProvider(),
+              child: const SignUpView(),
+            ),
+          );
         default:
           return _errorRoute();
       }

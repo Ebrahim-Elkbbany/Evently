@@ -13,7 +13,6 @@ class FontStyles {
     fontSize: 14.sp,
     fontFamily: "Poppins",
   );
-
   static TextStyle font20Medium = TextStyle(
     fontWeight: FontWeightHelper.medium,
     fontSize: 20.sp,

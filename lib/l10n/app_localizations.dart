@@ -745,6 +745,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sign Up With Google'**
   String get sign_up_with_google;
+
+  /// No description provided for @the_password_provided_is_too_weak.
+  ///
+  /// In en, this message translates to:
+  /// **'The password provided is too weak.'**
+  String get the_password_provided_is_too_weak;
+
+  /// No description provided for @the_account_already_exists_for_that_email.
+  ///
+  /// In en, this message translates to:
+  /// **'The account already exists for that email.'**
+  String get the_account_already_exists_for_that_email;
+
+  /// No description provided for @some_thing_went_wrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Some thing went wrong'**
+  String get some_thing_went_wrong;
+
+  /// No description provided for @name_is_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Name is required'**
+  String get name_is_required;
+
+  /// No description provided for @email_is_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Email is required'**
+  String get email_is_required;
+
+  /// No description provided for @password_is_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Password is required'**
+  String get password_is_required;
+
+  /// No description provided for @week_password.
+  ///
+  /// In en, this message translates to:
+  /// **' Password is week'**
+  String get week_password;
+
+  /// No description provided for @confirm_password_is_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm password is required'**
+  String get confirm_password_is_required;
+
+  /// No description provided for @passwords_do_not_match.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get passwords_do_not_match;
+
+  /// No description provided for @no_user_found_for_that_email.
+  ///
+  /// In en, this message translates to:
+  /// **'No user found for that email.'**
+  String get no_user_found_for_that_email;
+
+  /// No description provided for @wrong_password_provided_for_that_user.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong password provided for that user.'**
+  String get wrong_password_provided_for_that_user;
 }
 
 class _AppLocalizationsDelegate

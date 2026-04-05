@@ -112,5 +112,16 @@
 "book_club":"Book Club",
 "all":"All",
 "exhibition":"Exhibition",
-"sign_up_with_google":"Sign Up With Google"
+"sign_up_with_google":"Sign Up With Google",
+"the_password_provided_is_too_weak":"The password provided is too weak.",
+"the_account_already_exists_for_that_email":"The account already exists for that email.",
+"some_thing_went_wrong":"Some thing went wrong",
+"name_is_required":"Name is required",
+"email_is_required":"Email is required",
+"password_is_required":"Password is required",
+  "week_password":" Password is week",
+"confirm_password_is_required":"Confirm password is required",
+"passwords_do_not_match":"Passwords do not match",
+  "no_user_found_for_that_email":"No user found for that email.",
+  "wrong_password_provided_for_that_user":"Wrong password provided for that user."
 }

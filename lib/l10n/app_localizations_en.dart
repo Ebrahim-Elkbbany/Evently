@@ -337,4 +337,40 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sign_up_with_google => 'Sign Up With Google';
+
+  @override
+  String get the_password_provided_is_too_weak =>
+      'The password provided is too weak.';
+
+  @override
+  String get the_account_already_exists_for_that_email =>
+      'The account already exists for that email.';
+
+  @override
+  String get some_thing_went_wrong => 'Some thing went wrong';
+
+  @override
+  String get name_is_required => 'Name is required';
+
+  @override
+  String get email_is_required => 'Email is required';
+
+  @override
+  String get password_is_required => 'Password is required';
+
+  @override
+  String get week_password => ' Password is week';
+
+  @override
+  String get confirm_password_is_required => 'Confirm password is required';
+
+  @override
+  String get passwords_do_not_match => 'Passwords do not match';
+
+  @override
+  String get no_user_found_for_that_email => 'No user found for that email.';
+
+  @override
+  String get wrong_password_provided_for_that_user =>
+      'Wrong password provided for that user.';
 }

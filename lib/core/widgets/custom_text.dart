@@ -22,7 +22,7 @@ class CustomText extends StatelessWidget {
     return Text(
       text,
       textAlign: textAlign,
-      style: context.textTheme.bodyLarge?.copyWith(
+      style: context.textTheme.titleSmall?.copyWith(
         fontSize: fontSize,
         fontWeight: fontWeight,
         color: textColor ?? context.customColors.mainText,

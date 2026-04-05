@@ -40,6 +40,7 @@ class SignUpViewBody extends StatelessWidget {
             const AlreadyHaveAnAccountRow(),
             context.gapH(32),
             const SocialSignUpSection(),
+            context.gapH(32),
           ],
         ),
       ),

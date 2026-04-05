@@ -52,7 +52,7 @@ class SocialSignUpSection extends StatelessWidget {
                 context.gapW(10),
                 Text(
                   context.lan.sign_up_with_google,
-                  style: context.textTheme.titleMedium,
+                  style: context.textTheme.displayLarge,
                 ),
               ],
             ),

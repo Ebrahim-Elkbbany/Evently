@@ -40,6 +40,7 @@ class LoginViewBody extends StatelessWidget {
             const CreateAccountRow(),
             context.gapH(24),
             const SocialLoginSection(),
+            context.gapH(32),
           ],
         ),
       ),
