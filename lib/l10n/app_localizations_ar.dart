@@ -334,4 +334,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get exhibition => 'معرض';
+
+  @override
+  String get sign_up_with_google => 'إنشاء حساب باستخدام جوجل';
 }

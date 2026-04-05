@@ -739,6 +739,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exhibition'**
   String get exhibition;
+
+  /// No description provided for @sign_up_with_google.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Up With Google'**
+  String get sign_up_with_google;
 }
 
 class _AppLocalizationsDelegate

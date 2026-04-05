@@ -334,4 +334,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get exhibition => 'Exhibition';
+
+  @override
+  String get sign_up_with_google => 'Sign Up With Google';
 }

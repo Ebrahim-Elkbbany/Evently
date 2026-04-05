@@ -1,5 +1,6 @@
 import 'package:evently/core/navigation/app_routes.dart';
 import 'package:evently/features/login/presenation/views/login_view.dart';
+import 'package:evently/features/sign_up/presenation/views/sign_up_view.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppRouter {
@@ -9,6 +10,8 @@ abstract class AppRouter {
       switch (name) {
         case AppRoutes.loginView:
           return MaterialPageRoute(builder: (context) => const LoginView());
+        case AppRoutes.signUpView:
+          return MaterialPageRoute(builder: (context) => const SignUpView());
         default:
           return _errorRoute();
       }

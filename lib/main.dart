@@ -36,7 +36,7 @@ class EventlyApp extends StatelessWidget {
           supportedLocales: AppLocalizations.supportedLocales,
           locale: const Locale('en'),
           onGenerateRoute: AppRouter.onGenerateRoute,
-          initialRoute: AppRoutes.loginView,
+          initialRoute: AppRoutes.signUpView,
         );
       },
     );
