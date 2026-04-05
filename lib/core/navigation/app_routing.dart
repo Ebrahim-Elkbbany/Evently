@@ -1,8 +1,8 @@
 import 'package:evently/core/navigation/app_routes.dart';
-import 'package:evently/features/login/presenation/manager/login_provider.dart';
-import 'package:evently/features/login/presenation/views/login_view.dart';
-import 'package:evently/features/sign_up/presenation/manager/sign_up_provider.dart';
-import 'package:evently/features/sign_up/presenation/views/sign_up_view.dart';
+import 'package:evently/features/login/presentation/manager/login_provider.dart';
+import 'package:evently/features/login/presentation/views/login_view.dart';
+import 'package:evently/features/sign_up/presentation/manager/sign_up_provider.dart';
+import 'package:evently/features/sign_up/presentation/views/sign_up_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

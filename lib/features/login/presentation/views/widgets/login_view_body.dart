@@ -1,8 +1,8 @@
 import 'package:evently/core/utils/constants/assets_paths.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
-import 'package:evently/features/login/presenation/views/widgets/create_account_row.dart';
-import 'package:evently/features/login/presenation/views/widgets/login_form.dart';
-import 'package:evently/features/login/presenation/views/widgets/social_login_section.dart';
+import 'package:evently/features/login/presentation/views/widgets/create_account_row.dart';
+import 'package:evently/features/login/presentation/views/widgets/login_form.dart';
+import 'package:evently/features/login/presentation/views/widgets/social_login_section.dart';
 import 'package:evently/features/profile/presentation/manager/config_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +14,6 @@ class LoginViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var configProvider = Provider.of<ConfigProvider>(context);
-
     return SingleChildScrollView(
       child: Padding(
         padding: REdgeInsets.symmetric(horizontal: 16),

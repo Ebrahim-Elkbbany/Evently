@@ -1,4 +1,4 @@
-import 'package:evently/features/sign_up/presenation/views/widgets/sign_up_view_body.dart';
+import 'package:evently/features/sign_up/presentation/views/widgets/sign_up_view_body.dart';
 import 'package:flutter/material.dart';
 
 class SignUpView extends StatelessWidget {

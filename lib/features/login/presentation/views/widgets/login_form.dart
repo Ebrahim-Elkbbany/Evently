@@ -5,7 +5,7 @@ import 'package:evently/core/widgets/buttons/custom_button.dart';
 import 'package:evently/core/widgets/buttons/custom_text_button.dart';
 import 'package:evently/core/widgets/text_fields/custom_password_text_field.dart';
 import 'package:evently/core/widgets/text_fields/custom_text_form_field.dart';
-import 'package:evently/features/login/presenation/manager/login_provider.dart';
+import 'package:evently/features/login/presentation/manager/login_provider.dart';
 import 'package:evently/features/sign_up/data/models/sign_up_request_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
