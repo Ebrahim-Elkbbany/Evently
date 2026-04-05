@@ -28,26 +28,22 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height ?? 54.h,
+      height: height ?? 48.h,
       width: width ?? double.infinity,
       child: ElevatedButton(
         onPressed: isLoading ? null : onPressed,
+        
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor ?? context.customColors.primary,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(radius?.r ?? 12.r),
+            borderRadius: BorderRadius.circular(radius?.r ?? 16.r),
           ),
         ),
         child: isLoading
             ? ButtonLoadingIndicator(color: context.customColors.mainText)
             : Text(
                 buttonName,
-                style:
-                    textStyle ??
-                    context.textTheme.titleMedium?.copyWith(
-                      color: context.customColors.mainText,
-                      fontWeight: FontWeight.bold,
-                    ),
+                style: textStyle ?? context.textTheme.titleLarge,
               ),
       ),
     );

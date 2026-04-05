@@ -25,14 +25,18 @@ class AppTheme {
         selectionHandleColor: colors.primary,
       ),
       canvasColor: colors.background,
-      // 🟢 TextField Theme
+      //  TextField Theme
       inputDecorationTheme: InputDecorationTheme(
         isDense: true,
         filled: true,
         fillColor: colors.inputs,
         contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
         hintStyle: FontStyles.font14Regular.copyWith(color: colors.mainText),
-        errorStyle: TextStyle(color: colors.error, fontSize: 12.sp),
+        errorStyle: TextStyle(
+          color: colors.error,
+          fontSize: 12.sp,
+          fontFamily: "Poppins",
+        ),
         border: _outlineBorder(colors.stroke),
         enabledBorder: _outlineBorder(colors.stroke),
         focusedBorder: _outlineBorder(colors.primary),
@@ -40,7 +44,6 @@ class AppTheme {
         focusedErrorBorder: _outlineBorder(colors.error),
         disabledBorder: _outlineBorder(colors.stroke),
       ),
-
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: colors.primary,
@@ -50,11 +53,10 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.r),
           ),
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
         ),
       ),
 
-      // 🟣 Card & Divider Theme
+      //  Card & Divider Theme
       cardTheme: CardThemeData(
         color: colors.inputs,
         elevation: 0,
@@ -68,7 +70,7 @@ class AppTheme {
         space: 20.h,
       ),
 
-      // 🔴 Dialog Theme
+      //  Dialog Theme
       dialogTheme: DialogThemeData(
         backgroundColor: colors.background,
         shape: RoundedRectangleBorder(
@@ -76,25 +78,25 @@ class AppTheme {
         ),
       ),
 
-      // 🟡 Text Theme
+      //  Text Theme
       textTheme: TextTheme(
         headlineMedium: FontStyles.font24SemiBold.copyWith(
           color: colors.headLine,
         ),
-        displayLarge: FontStyles.font50SemiBold.copyWith(
-          color: colors.mainText,
-        ),
-        titleLarge: FontStyles.font20SemiBold.copyWith(color: colors.mainText),
+        titleLarge: FontStyles.font20Medium.copyWith(color: colors.white),
+        titleMedium: FontStyles.font18Medium.copyWith(color: colors.primary),
         bodyLarge: FontStyles.font16SemiBold.copyWith(color: colors.mainText),
         bodyMedium: FontStyles.font16Regular.copyWith(
           color: colors.secondaryText,
         ),
-        bodySmall: FontStyles.font14Bold.copyWith(color: colors.mainText),
+        bodySmall: FontStyles.font14SemiBold.copyWith(
+          color: colors.secondaryText,
+        ),
       ),
 
-      // ⚪ AppBar Theme
+      //  AppBar Theme
       appBarTheme: AppBarTheme(
-        titleTextStyle: FontStyles.font20SemiBold.copyWith(
+        titleTextStyle: FontStyles.font20Medium.copyWith(
           color: colors.mainText,
         ),
         centerTitle: true,

@@ -8,6 +8,7 @@ class CustomTextButton extends StatelessWidget {
   final TextStyle? textStyle;
   final Color? color;
   final Alignment? alignment;
+  final bool? isUnderLine;
 
   const CustomTextButton({
     super.key,
@@ -16,6 +17,7 @@ class CustomTextButton extends StatelessWidget {
     this.textStyle,
     this.color,
     this.alignment,
+    this.isUnderLine,
   });
 
   @override
@@ -23,7 +25,6 @@ class CustomTextButton extends StatelessWidget {
     return Align(
       alignment: alignment ?? AlignmentDirectional.bottomCenter,
       child: TextButton(
-        
         onPressed: onPressed,
         style: TextButton.styleFrom(
           padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
@@ -38,6 +39,10 @@ class CustomTextButton extends StatelessWidget {
                 color: color ?? context.customColors.primary,
                 fontWeight: FontWeight.w600,
                 fontSize: 14.sp,
+                decoration: isUnderLine == true
+                    ? TextDecoration.underline
+                    : null,
+                decorationColor: context.customColors.primary,
               ),
         ),
       ),

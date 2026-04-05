@@ -14,18 +14,19 @@ class OnboardingTextSection extends StatelessWidget {
       children: [
         Text(
           OnboardingModel.onboardingData(context)[currentIndex].title,
-          style: FontStyles.font20SemiBold.copyWith(
+          style: FontStyles.font20Medium.copyWith(
             color: context.customColors.primary,
             fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
         ),
         context.gapH(30),
-        if (OnboardingModel.onboardingData(context)[currentIndex].subtitle != null)
+        if (OnboardingModel.onboardingData(context)[currentIndex].subtitle !=
+            null)
           Text(
             OnboardingModel.onboardingData(context)[currentIndex].subtitle!,
             textAlign: TextAlign.center,
-            style: FontStyles.font20SemiBold.copyWith(
+            style: FontStyles.font20Medium.copyWith(
               color: context.customColors.primary,
               fontWeight: FontWeight.bold,
             ),

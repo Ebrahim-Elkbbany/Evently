@@ -8,20 +8,20 @@ class FontStyles {
     fontSize: 24.sp,
     fontFamily: "Poppins",
   );
-    static TextStyle font14Regular = TextStyle(
+  static TextStyle font14Regular = TextStyle(
     fontWeight: FontWeightHelper.regular,
     fontSize: 14.sp,
-  );
-  static TextStyle font50SemiBold = TextStyle(
-    fontWeight: FontWeightHelper.semiBold,
-    fontSize: 50.sp,
-    height: 1.09,
     fontFamily: "Poppins",
   );
 
-  static TextStyle font20SemiBold = TextStyle(
-    fontWeight: FontWeightHelper.semiBold,
+  static TextStyle font20Medium = TextStyle(
+    fontWeight: FontWeightHelper.medium,
     fontSize: 20.sp,
+    fontFamily: "Poppins",
+  );
+  static TextStyle font18Medium = TextStyle(
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 18.sp,
     fontFamily: "Poppins",
   );
 
@@ -37,8 +37,8 @@ class FontStyles {
     fontFamily: "Poppins",
   );
 
-  static TextStyle font14Bold = TextStyle(
-    fontWeight: FontWeightHelper.bold,
+  static TextStyle font14SemiBold = TextStyle(
+    fontWeight: FontWeightHelper.semiBold,
     fontSize: 14.sp,
     fontFamily: "Poppins",
   );

@@ -8,4 +8,5 @@ class AppImages {
   static const String onboarding4 = '${assetsImagePath}onboarding_4.png';
   static const String logoLight = '${assetsImagePath}logo_light.png';
   static const String logoDark = '${assetsImagePath}logo_dark.png';
+  static const String googleIcon = '${assetsImagePath}google_icon.png';
 }

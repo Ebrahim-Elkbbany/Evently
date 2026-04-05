@@ -13,6 +13,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   final Color success;
   final Color warning;
   final Color headLine;
+  final Color white;
 
   const AppColorsExtension({
     required this.primary,
@@ -27,6 +28,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     required this.success,
     required this.warning,
     required this.headLine,
+    required this.white,
   });
 
   @override
@@ -43,6 +45,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     Color? success,
     Color? warning,
     Color? headLine,
+    Color? white,
   }) {
     return AppColorsExtension(
       primary: primary ?? this.primary,
@@ -57,6 +60,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       success: success ?? this.success,
       warning: warning ?? this.warning,
       headLine: headLine ?? this.headLine,
+      white: white ?? this.white,
     );
   }
 
@@ -82,6 +86,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       success: Color.lerp(success, other.success, t)!,
       warning: Color.lerp(warning, other.warning, t)!,
       headLine: Color.lerp(headLine, other.headLine, t)!,
+      white: Color.lerp(white, other.white, t)!,
     );
   }
 
@@ -123,6 +128,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     error: _errorLight,
     success: _successLight,
     warning: _warningLight,
+    white: _white,
   );
 
   /// [dark] Mode Configuration (AR: إعدادات الوضع الغامق)
@@ -139,5 +145,6 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     error: _errorDark,
     success: _successDark,
     warning: _warningDark,
+    white: _white,
   );
 }

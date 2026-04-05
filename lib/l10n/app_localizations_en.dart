@@ -249,10 +249,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get forget_password => 'Forget password?';
 
   @override
-  String get dont_have_an_account => 'Don\'t have an account';
+  String get dont_have_an_account => 'Don\'t have an account ?';
 
   @override
-  String get sing_up => 'Sign-Up';
+  String get sing_up => 'Signup';
 
   @override
   String get or => 'Or';
