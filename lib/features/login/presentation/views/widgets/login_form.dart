@@ -85,7 +85,7 @@ class _LoginFormState extends State<LoginForm> {
                     );
                 result.fold(
                   (errorMessage) => context.handleAuthError(errorMessage),
-                  (_) => CustomSnackBar.show(
+                  (right) => CustomSnackBar.show(
                     context: context,
                     message: 'تم تسجيل الدخول بنجاح',
                     duration: Duration(seconds: 1),

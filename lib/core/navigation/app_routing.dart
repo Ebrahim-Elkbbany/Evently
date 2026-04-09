@@ -11,6 +11,10 @@ abstract class AppRouter {
     var name = routeSettings.name;
     try {
       switch (name) {
+        // case AppRoutes.initialRoute:
+        //   return MaterialPageRoute(
+        //     builder: (context) => ,
+        //   );
         case AppRoutes.loginView:
           return MaterialPageRoute(
             builder: (context) => ChangeNotifierProvider(

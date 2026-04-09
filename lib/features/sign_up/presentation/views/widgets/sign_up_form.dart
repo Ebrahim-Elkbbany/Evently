@@ -102,10 +102,10 @@ class _SignUpFormState extends State<SignUpForm> {
                     .read<SignUpProvider>()
                     .signUpWithEmailAndPassword(
                       SignUpModel(
+                        name: nameController.text,
                         email: emailController.text,
                         password: passwordController.text,
                       ),
-                      context,
                     );
                 result.fold(
                   (error) => context.handleAuthError(error),
