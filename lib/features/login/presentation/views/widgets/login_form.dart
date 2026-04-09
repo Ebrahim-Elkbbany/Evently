@@ -3,10 +3,11 @@ import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/utils/extensions/firebase_extension.dart';
 import 'package:evently/core/widgets/buttons/custom_button.dart';
 import 'package:evently/core/widgets/buttons/custom_text_button.dart';
+import 'package:evently/core/widgets/custom_snack_bar.dart';
 import 'package:evently/core/widgets/text_fields/custom_password_text_field.dart';
 import 'package:evently/core/widgets/text_fields/custom_text_form_field.dart';
+import 'package:evently/features/login/data/models/sign_in_model.dart';
 import 'package:evently/features/login/presentation/manager/login_provider.dart';
-import 'package:evently/features/sign_up/data/models/sign_up_request_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -76,18 +77,20 @@ class _LoginFormState extends State<LoginForm> {
                 var result = await context
                     .read<LoginProvider>()
                     .loginWithEmailAndPassword(
-                      SignUpRequestModel(
+                      SignInModel(
                         email: emailController.text,
                         password: passwordController.text,
                       ),
                       context,
                     );
-
                 result.fold(
                   (errorMessage) => context.handleAuthError(errorMessage),
-                  (_) => ScaffoldMessenger.of(
-                    context,
-                  ).showSnackBar(SnackBar(content: Text('تم التسجيل بنجاح'))),
+                  (_) => CustomSnackBar.show(
+                    context: context,
+                    message: 'تم تسجيل الدخول بنجاح',
+                    duration: Duration(seconds: 1),
+                    type: CustomSnackBarType.success,
+                  ),
                 );
               }
             },

@@ -1,4 +1,5 @@
 import 'package:evently/core/utils/extensions/context_extension.dart';
+import 'package:evently/core/widgets/custom_snack_bar.dart';
 import 'package:flutter/material.dart';
 
 extension AuthErrorExtension on BuildContext {
@@ -17,8 +18,11 @@ extension AuthErrorExtension on BuildContext {
       errorMessage = errorCode;
     }
 
-    ScaffoldMessenger.of(
-      this,
-    ).showSnackBar(SnackBar(content: Text(errorMessage)));
+    CustomSnackBar.show(
+      context: this,
+      message: errorMessage,
+      duration: const Duration(seconds: 2),
+      type: CustomSnackBarType.error,
+    );
   }
 }

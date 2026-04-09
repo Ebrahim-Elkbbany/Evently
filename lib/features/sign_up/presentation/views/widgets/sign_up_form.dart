@@ -2,9 +2,10 @@ import 'package:evently/core/utils/app_regex_helper.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/utils/extensions/firebase_extension.dart';
 import 'package:evently/core/widgets/buttons/custom_button.dart';
+import 'package:evently/core/widgets/custom_snack_bar.dart';
 import 'package:evently/core/widgets/text_fields/custom_password_text_field.dart';
 import 'package:evently/core/widgets/text_fields/custom_text_form_field.dart';
-import 'package:evently/features/sign_up/data/models/sign_up_request_model.dart';
+import 'package:evently/features/sign_up/data/models/sign_up_model.dart';
 import 'package:evently/features/sign_up/presentation/manager/sign_up_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -100,17 +101,19 @@ class _SignUpFormState extends State<SignUpForm> {
                 var result = await context
                     .read<SignUpProvider>()
                     .signUpWithEmailAndPassword(
-                      SignUpRequestModel(
+                      SignUpModel(
                         email: emailController.text,
                         password: passwordController.text,
                       ),
                       context,
                     );
                 result.fold(
-                  (l) => context.handleAuthError(l),
-                  (r) => ScaffoldMessenger.of(
-                    context,
-                  ).showSnackBar(SnackBar(content: Text('تم التسجيل بنجاح'))),
+                  (error) => context.handleAuthError(error),
+                  (r) => CustomSnackBar.show(
+                    context: context,
+                    message: 'تم التسجيل بنجاح',
+                    type: CustomSnackBarType.success,
+                  ),
                 );
               }
             },
