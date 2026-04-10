@@ -64,9 +64,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     );
   }
 
-  /// [lerp] (AR: التداخل الخطي)
-  /// Used by Flutter for smooth transitions when switching between light and dark mode.
-  /// (AR: يستخدم لعمل انتقال ناعم جداً بين ألوان الوضع الفاتح والغامق)
+
   @override
   AppColorsExtension lerp(
     covariant ThemeExtension<AppColorsExtension>? other,
@@ -90,7 +88,6 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     );
   }
 
-  // --- Static Raw Colors (AR: الألوان الخام الثابتة) ---
   static const Color _primary = Color(0xff0E3A99);
   static const Color _primaryDark = Color(0xff457AED);
   static const Color _disable = Color(0xffB9B9B9);
@@ -114,7 +111,6 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   static const Color _warningLight = Color(0xFFED6C02);
   static const Color _warningDark = Color(0xFFFFA726);
 
-  /// [light] Mode Configuration (AR: إعدادات الوضع الفاتح)
   static const light = AppColorsExtension(
     headLine: _primary,
     primary: _primary,
@@ -131,7 +127,6 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     white: _white,
   );
 
-  /// [dark] Mode Configuration (AR: إعدادات الوضع الغامق)
   static const dark = AppColorsExtension(
     headLine: _white,
     primary: _primaryDark,

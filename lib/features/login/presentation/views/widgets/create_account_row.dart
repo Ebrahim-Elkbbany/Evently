@@ -1,3 +1,5 @@
+import 'package:evently/core/navigation/app_routes.dart';
+import 'package:evently/core/navigation/navigation_context_extension.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/widgets/buttons/custom_text_button.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +18,9 @@ class CreateAccountRow extends StatelessWidget {
         ),
         CustomTextButton(
           text: context.lan.sing_up,
-          onPressed: () {},
+          onPressed: () {
+            context.pushNamed(AppRoutes.signUpView);
+          },
           isUnderLine: true,
         ),
       ],

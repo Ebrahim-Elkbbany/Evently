@@ -1,16 +1,31 @@
 import 'package:evently/core/navigation/app_routes.dart';
+import 'package:evently/core/services/firebase_services.dart';
 import 'package:evently/features/login/presentation/manager/login_provider.dart';
 import 'package:evently/features/login/presentation/views/login_view.dart';
 import 'package:evently/features/sign_up/presentation/manager/sign_up_provider.dart';
 import 'package:evently/features/sign_up/presentation/views/sign_up_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 abstract class AppRouter {
   static Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {
     var name = routeSettings.name;
+    User? currentUser = FirebaseServices.firebaseAuth.currentUser;
     try {
       switch (name) {
+        case AppRoutes.initialRoute:
+          return MaterialPageRoute(
+            builder: (context) => currentUser != null
+                ? ChangeNotifierProvider(
+                    create: (context) => LoginProvider(),
+                    child: const LoginView(),
+                  )
+                : ChangeNotifierProvider(
+                    create: (context) => SignUpProvider(),
+                    child: const SignUpView(),
+                  ),
+          );
         case AppRoutes.loginView:
           return MaterialPageRoute(
             builder: (context) => ChangeNotifierProvider(

@@ -7,7 +7,7 @@ class CustomTextButton extends StatelessWidget {
   final VoidCallback onPressed;
   final TextStyle? textStyle;
   final Color? color;
-  final Alignment? alignment;
+  final AlignmentGeometry? alignment;
   final bool? isUnderLine;
 
   const CustomTextButton({

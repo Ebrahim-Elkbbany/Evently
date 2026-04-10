@@ -811,6 +811,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Wrong password provided for that user.'**
   String get wrong_password_provided_for_that_user;
+
+  /// No description provided for @successfully_logged_in.
+  ///
+  /// In en, this message translates to:
+  /// **'Successfully logged in'**
+  String get successfully_logged_in;
+
+  /// No description provided for @successfully_signed_up.
+  ///
+  /// In en, this message translates to:
+  /// **'Successfully signed up'**
+  String get successfully_signed_up;
 }
 
 class _AppLocalizationsDelegate

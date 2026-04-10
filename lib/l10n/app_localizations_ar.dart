@@ -373,4 +373,10 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get wrong_password_provided_for_that_user =>
       'كلمة المرور المقدمة خاطئة لهذا المستخدم  ';
+
+  @override
+  String get successfully_logged_in => 'تم تسجيل الدخول بنجاح';
+
+  @override
+  String get successfully_signed_up => 'تم التسجيل بنجاح';
 }
