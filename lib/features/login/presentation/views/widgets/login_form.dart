@@ -63,9 +63,9 @@ class _LoginFormState extends State<LoginForm> {
           ),
           context.gapH(24),
           CustomTextButton(
+            alignment: AlignmentDirectional.centerEnd,
             text: context.lan.forget_password,
             onPressed: () {},
-            alignment: Alignment.centerRight,
             isUnderLine: true,
           ),
           context.gapH(48),
@@ -87,8 +87,7 @@ class _LoginFormState extends State<LoginForm> {
                   (errorMessage) => context.handleAuthError(errorMessage),
                   (right) => CustomSnackBar.show(
                     context: context,
-                    message: 'تم تسجيل الدخول بنجاح',
-                    duration: Duration(seconds: 1),
+                    message: context.lan.successfully_logged_in,
                     type: CustomSnackBarType.success,
                   ),
                 );

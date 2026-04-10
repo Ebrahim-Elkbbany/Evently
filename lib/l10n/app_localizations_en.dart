@@ -373,4 +373,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get wrong_password_provided_for_that_user =>
       'Wrong password provided for that user.';
+
+  @override
+  String get successfully_logged_in => 'Successfully logged in';
+
+  @override
+  String get successfully_signed_up => 'Successfully signed up';
 }

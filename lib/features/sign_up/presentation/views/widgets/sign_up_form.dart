@@ -111,7 +111,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   (error) => context.handleAuthError(error),
                   (r) => CustomSnackBar.show(
                     context: context,
-                    message: 'تم التسجيل بنجاح',
+                    message: context.lan.successfully_signed_up,
                     type: CustomSnackBarType.success,
                   ),
                 );

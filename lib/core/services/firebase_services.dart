@@ -26,8 +26,22 @@ abstract class FirebaseServices {
   }
 
   static Future<void> saveUser(UserModel userModel) async {
-    CollectionReference usersCollection = firestore.collection('users');
-    DocumentReference<Object?> userDoc = usersCollection.doc(userModel.userId);
+    CollectionReference<Map<String, dynamic>> usersCollection = firestore
+        .collection('users');
+    DocumentReference<Map<String, dynamic>> userDoc = usersCollection.doc(
+      userModel.userId,
+    );
     await userDoc.set(userModel.toJson());
+  }
+
+  static Future<UserModel> getUser(String userId) async {
+    CollectionReference<Map<String, dynamic>> usersCollection = firestore
+        .collection('users');
+    DocumentReference<Map<String, dynamic>> userDoc = usersCollection.doc(
+      userId,
+    );
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot = await userDoc
+        .get();
+    return UserModel.fromJson(documentSnapshot.data()!);
   }
 }

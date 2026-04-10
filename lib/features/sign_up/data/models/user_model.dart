@@ -8,4 +8,12 @@ class UserModel {
   Map<String, dynamic> toJson() {
     return {'userId': userId, 'name': name, 'email': email};
   }
+
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+      userId: json['userId'],
+      name: json['name'],
+      email: json['email'],
+    );
+  }
 }

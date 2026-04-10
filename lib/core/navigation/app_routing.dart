@@ -16,8 +16,15 @@ abstract class AppRouter {
       switch (name) {
         case AppRoutes.initialRoute:
           return MaterialPageRoute(
-            builder: (context) =>
-                currentUser == null ? const LoginView() : const SignUpView(),
+            builder: (context) => currentUser != null
+                ? ChangeNotifierProvider(
+                    create: (context) => LoginProvider(),
+                    child: const LoginView(),
+                  )
+                : ChangeNotifierProvider(
+                    create: (context) => SignUpProvider(),
+                    child: const SignUpView(),
+                  ),
           );
         case AppRoutes.loginView:
           return MaterialPageRoute(
