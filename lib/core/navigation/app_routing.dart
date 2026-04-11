@@ -1,5 +1,7 @@
 import 'package:evently/core/navigation/app_routes.dart';
 import 'package:evently/core/services/firebase_services.dart';
+import 'package:evently/features/layout/manager/layout_provider.dart';
+import 'package:evently/features/layout/presentation/layout_view.dart';
 import 'package:evently/features/login/presentation/manager/login_provider.dart';
 import 'package:evently/features/login/presentation/views/login_view.dart';
 import 'package:evently/features/sign_up/presentation/manager/sign_up_provider.dart';
@@ -22,10 +24,12 @@ abstract class AppRouter {
                     child: const LoginView(),
                   )
                 : ChangeNotifierProvider(
-                    create: (context) => SignUpProvider(),
-                    child: const SignUpView(),
+                    create: (context) => LayoutProvider(),
+                    child: const LayoutView(),
                   ),
           );
+        case AppRoutes.layoutView:
+          return MaterialPageRoute(builder: (context) => const LayoutView());
         case AppRoutes.loginView:
           return MaterialPageRoute(
             builder: (context) => ChangeNotifierProvider(
