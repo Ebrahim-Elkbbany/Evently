@@ -108,13 +108,19 @@ class AppTheme {
       ),
 
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        selectedLabelStyle: FontStyles.font12Regular.copyWith(
+          color: colors.primary,
+        ),
+        unselectedLabelStyle: FontStyles.font12Regular.copyWith(
+          color: colors.disable,
+        ),
         backgroundColor: colors.background,
         selectedItemColor: colors.primary,
-        unselectedItemColor: colors.secondaryText,
+        unselectedItemColor: colors.disable,
         type: BottomNavigationBarType.fixed,
-        elevation: 10,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
+        elevation: 0,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
       ),
     );
   }
