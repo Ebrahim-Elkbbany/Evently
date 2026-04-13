@@ -1,3 +1,5 @@
+import 'package:evently/core/navigation/app_routes.dart';
+import 'package:evently/core/navigation/navigation_context_extension.dart';
 import 'package:evently/core/utils/app_regex_helper.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/utils/extensions/firebase_extension.dart';
@@ -85,11 +87,14 @@ class _LoginFormState extends State<LoginForm> {
                     );
                 result.fold(
                   (errorMessage) => context.handleAuthError(errorMessage),
-                  (right) => CustomSnackBar.show(
-                    context: context,
-                    message: context.lan.successfully_logged_in,
-                    type: CustomSnackBarType.success,
-                  ),
+                  (right) {
+                    CustomSnackBar.show(
+                      context: context,
+                      message: context.lan.successfully_logged_in,
+                      type: CustomSnackBarType.success,
+                    );
+                    context.pushReplacementNamed(AppRoutes.layoutView);
+                  },
                 );
               }
             },

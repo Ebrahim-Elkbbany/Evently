@@ -20,17 +20,17 @@ class LayoutView extends StatelessWidget {
         items: [
           customBottomNavBarItem(
             label: context.lan.home,
-            icon: Icons.home_outlined,
+            icon: Icons.home,
             context: context,
           ),
           customBottomNavBarItem(
-            label: context.lan.home,
-            icon: Icons.favorite_outlined,
+            label: context.lan.favourite,
+            icon: Icons.favorite,
             context: context,
           ),
           customBottomNavBarItem(
-            label: context.lan.home,
-            icon: Icons.person_outline,
+            label: context.lan.profile,
+            icon: Icons.person,
             context: context,
           ),
         ],

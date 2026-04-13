@@ -44,4 +44,12 @@ abstract class FirebaseServices {
         .get();
     return UserModel.fromJson(documentSnapshot.data()!);
   }
+
+  static Future<UserModel?> getCurrentUser() async {
+    if (firebaseAuth.currentUser == null) return null;
+    return await getUser(firebaseAuth.currentUser!.uid);
+  }
+  static Future<void> logout() async {
+    await firebaseAuth.signOut();
+  }
 }

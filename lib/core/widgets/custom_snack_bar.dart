@@ -31,7 +31,6 @@ class CustomSnackBar {
         icon = Icons.warning_amber_rounded;
         break;
       case CustomSnackBarType.info:
-      default:
         backgroundColor = colors?.primary ?? const Color(0xFF2196F3);
         icon = Icons.info_outline;
         break;
@@ -57,7 +56,7 @@ class CustomSnackBar {
                 borderRadius: BorderRadius.circular(100.r),
                 boxShadow: [
                   BoxShadow(
-                    color: backgroundColor.withOpacity(0.4),
+                    color: backgroundColor.withValues(alpha: 0.4),
                     blurRadius: 15,
                     spreadRadius: 2,
                     offset: const Offset(0, 5),

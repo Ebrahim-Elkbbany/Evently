@@ -1,6 +1,6 @@
 import 'package:evently/core/utils/constants/assets_paths.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
-import 'package:evently/features/profile/presentation/manager/config_provider.dart';
+import 'package:evently/core/utils/change_lang/localization_provider.dart';
 import 'package:evently/features/sign_up/presentation/views/widgets/already_have_an_account_row.dart';
 import 'package:evently/features/sign_up/presentation/views/widgets/sign_up_form.dart';
 import 'package:evently/features/sign_up/presentation/views/widgets/social_sign_up_section.dart';
@@ -13,7 +13,7 @@ class SignUpViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var configProvider = Provider.of<ConfigProvider>(context);
+    var localizationProvider = Provider.of<LocalizationProvider>(context);
 
     return SingleChildScrollView(
       child: Padding(
@@ -23,7 +23,7 @@ class SignUpViewBody extends StatelessWidget {
           children: [
             context.gapH(60),
             Image.asset(
-              configProvider.isDarkThme
+              localizationProvider.isDarkTheme
                   ? AppImages.logoDark
                   : AppImages.logoLight,
               height: 26.h,

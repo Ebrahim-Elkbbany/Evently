@@ -7,6 +7,8 @@ import 'package:evently/features/login/presentation/views/login_view.dart';
 import 'package:evently/features/sign_up/presentation/manager/sign_up_provider.dart';
 import 'package:evently/features/sign_up/presentation/views/sign_up_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:evently/core/di/service_locator.dart';
+import 'package:evently/features/home/presentation/manager/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,18 +20,29 @@ abstract class AppRouter {
       switch (name) {
         case AppRoutes.initialRoute:
           return MaterialPageRoute(
-            builder: (context) => currentUser != null
+            builder: (context) => currentUser == null
                 ? ChangeNotifierProvider(
-                    create: (context) => LoginProvider(),
+                    create: (context) => getIt<LoginProvider>(),
                     child: const LoginView(),
                   )
-                : ChangeNotifierProvider(
-                    create: (context) => LayoutProvider(),
+                : MultiProvider(
+                    providers: [
+                      ChangeNotifierProvider(create: (_) => getIt<LayoutProvider>()),
+                      ChangeNotifierProvider(create: (_) => getIt<HomeProvider>()),
+                    ],
                     child: const LayoutView(),
                   ),
           );
         case AppRoutes.layoutView:
-          return MaterialPageRoute(builder: (context) => const LayoutView());
+          return MaterialPageRoute(
+            builder: (context) => MultiProvider(
+              providers: [
+                ChangeNotifierProvider(create: (_) => getIt<LayoutProvider>()),
+                ChangeNotifierProvider(create: (_) => getIt<HomeProvider>()),
+              ],
+              child: const LayoutView(),
+            ),
+          );
         case AppRoutes.loginView:
           return MaterialPageRoute(
             builder: (context) => ChangeNotifierProvider(

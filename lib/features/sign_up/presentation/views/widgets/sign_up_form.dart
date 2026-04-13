@@ -1,3 +1,5 @@
+import 'package:evently/core/navigation/app_routes.dart';
+import 'package:evently/core/navigation/navigation_context_extension.dart';
 import 'package:evently/core/utils/app_regex_helper.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/utils/extensions/firebase_extension.dart';
@@ -109,11 +111,14 @@ class _SignUpFormState extends State<SignUpForm> {
                     );
                 result.fold(
                   (error) => context.handleAuthError(error),
-                  (r) => CustomSnackBar.show(
-                    context: context,
-                    message: context.lan.successfully_signed_up,
-                    type: CustomSnackBarType.success,
-                  ),
+                  (r) {
+                    CustomSnackBar.show(
+                      context: context,
+                      message: context.lan.successfully_signed_up,
+                      type: CustomSnackBarType.success,
+                    );
+                    context.pushReplacementNamed(AppRoutes.layoutView);
+                  },
                 );
               }
             },
