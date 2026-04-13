@@ -1,5 +1,6 @@
 import 'package:evently/core/navigation/app_routes.dart';
 import 'package:evently/core/services/firebase_services.dart';
+import 'package:evently/features/add_event/presentation/view/add_event_view.dart';
 import 'package:evently/features/home/presentation/manager/home_provider.dart';
 import 'package:evently/features/layout/manager/layout_provider.dart';
 import 'package:evently/features/layout/presentation/layout_view.dart';
@@ -56,6 +57,8 @@ abstract class AppRouter {
               child: const SignUpView(),
             ),
           );
+        case AppRoutes.addEventView:
+          return MaterialPageRoute(builder: (context) => const AddEventView());
         default:
           return _errorRoute();
       }

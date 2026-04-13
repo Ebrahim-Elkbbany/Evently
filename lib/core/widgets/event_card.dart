@@ -74,7 +74,7 @@ class EventCard extends StatelessWidget {
                     ),
                   ),
                   Icon(
-                    event.isFavorite ? Icons.favorite : Icons.favorite_border,
+                    Icons.favorite_border,
                     color: context.customColors.primary,
                     size: 20.r,
                   ),

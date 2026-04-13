@@ -58,7 +58,7 @@ class _SignUpFormState extends State<SignUpForm> {
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
-                  !AppRegexHelper.isEmailValid(value)) {
+                  !AppRegexHelper.isEmailValid(value.trim())) {
                 return context.lan.invalidEmail;
               }
               return null;

@@ -8,6 +8,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
+      
       child: Column(children: [HomeHeaderSection(), HomeEventsSection()]),
     );
   }

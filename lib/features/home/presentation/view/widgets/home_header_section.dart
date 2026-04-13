@@ -1,3 +1,4 @@
+import 'package:evently/core/models/tab_bar_model.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/widgets/custom_tab_bar.dart';
 import 'package:evently/features/home/presentation/manager/home_provider.dart';
@@ -11,20 +12,6 @@ class HomeHeaderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<TabItemModel> categories = [
-      TabItemModel(title: context.lan.all, icon: Icons.grid_view_rounded),
-      TabItemModel(
-        title: context.lan.sports,
-        icon: Icons.directions_bike_outlined,
-      ),
-      TabItemModel(title: context.lan.birthday, icon: Icons.cake_outlined),
-      TabItemModel(title: context.lan.book_club, icon: Icons.menu_book_rounded),
-      TabItemModel(
-        title: context.lan.exhibition,
-        icon: Icons.festival_outlined,
-      ),
-    ];
-
     return Container(
       padding: EdgeInsets.only(
         top: MediaQuery.viewPaddingOf(context).top + 16.h,
@@ -97,7 +84,7 @@ class HomeHeaderSection extends StatelessWidget {
           Consumer<HomeProvider>(
             builder: (context, provider, child) {
               return CustomTabBar(
-                tabs: categories,
+                tabs: TabItemModel.getTabBarList(context),
                 selectedIndex: provider.selectedTabIndex,
                 onTabChanged: (index) {
                   provider.changeTabIndex(index);

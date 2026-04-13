@@ -5,7 +5,6 @@ class EventModel {
   final String date;
   final String category;
   final String imagePath;
-  final bool isFavorite;
 
   const EventModel({
     required this.id,
@@ -14,7 +13,6 @@ class EventModel {
     required this.date,
     required this.category,
     required this.imagePath,
-    required this.isFavorite,
   });
 
   factory EventModel.fromJson(Map<String, dynamic> json) {
@@ -25,7 +23,6 @@ class EventModel {
       date: json['date'] as String,
       category: json['category'] as String,
       imagePath: json['imagePath'] as String,
-      isFavorite: json['isFavorite'] as bool,
     );
   }
 
@@ -37,7 +34,6 @@ class EventModel {
       'date': date,
       'category': category,
       'imagePath': imagePath,
-      'isFavorite': isFavorite,
     };
   }
 }

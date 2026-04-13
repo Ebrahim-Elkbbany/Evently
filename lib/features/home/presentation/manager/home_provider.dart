@@ -39,7 +39,6 @@ class HomeProvider extends ChangeNotifier {
           imagePath: AppImages.birthday,
           description: '',
           category: '',
-          isFavorite: true,
         );
       });
       state = HomeViewState.success;

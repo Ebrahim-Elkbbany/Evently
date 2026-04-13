@@ -294,7 +294,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get title => 'العنوان';
 
   @override
+  String get title_is_required => 'العنوان مطلوب';
+
+  @override
   String get description => 'الوصف';
+
+  @override
+  String get description_is_required => 'الوصف مطلوب';
 
   @override
   String get event_title => 'عنوان الفعالية';

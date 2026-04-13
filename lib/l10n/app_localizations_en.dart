@@ -294,7 +294,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get title => 'Title';
 
   @override
+  String get title_is_required => 'Title is required';
+
+  @override
   String get description => 'Description';
+
+  @override
+  String get description_is_required => 'Description is required';
 
   @override
   String get event_title => 'Event Title';

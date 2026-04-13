@@ -1,14 +1,8 @@
+import 'package:evently/core/models/tab_bar_model.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/widgets/custom_tab_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-class TabItemModel {
-  final String title;
-  final IconData icon;
-
-  const TabItemModel({required this.title, required this.icon});
-}
 
 class CustomTabBar extends StatelessWidget {
   final List<TabItemModel> tabs;
@@ -25,7 +19,7 @@ class CustomTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 48.h,
+      height: 40.h,
       child: ListView.separated(
         padding: EdgeInsetsDirectional.only(start: 16.w),
         scrollDirection: Axis.horizontal,
