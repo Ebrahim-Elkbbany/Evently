@@ -48,11 +48,7 @@ class SocialLoginSection extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  AppImages.googleIcon,
-                  height: 24.h,
-                  width: 24.w,
-                ),
+                Image.asset(AppImages.googleIcon, height: 24.h, width: 24.w),
                 context.gapW(10),
                 Text(
                   context.lan.login_with_google,

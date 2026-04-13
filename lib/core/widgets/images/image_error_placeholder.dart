@@ -24,8 +24,8 @@ class ImageErrorPlaceholder extends StatelessWidget {
       decoration: BoxDecoration(
         color: context.customColors.stroke.withValues(alpha: 0.05),
         shape: shape,
-        borderRadius: shape == BoxShape.rectangle 
-            ? BorderRadius.circular(borderRadius?.r ?? 12.r) 
+        borderRadius: shape == BoxShape.rectangle
+            ? BorderRadius.circular(borderRadius?.r ?? 12.r)
             : null,
       ),
       child: Icon(

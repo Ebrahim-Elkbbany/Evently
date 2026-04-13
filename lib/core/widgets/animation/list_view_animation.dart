@@ -21,7 +21,9 @@ class ListViewAnimation extends StatelessWidget {
       itemBuilder: (context, index) {
         return TweenAnimationBuilder<double>(
           tween: Tween<double>(begin: 0, end: 1),
-          duration: Duration(milliseconds: duration.inMilliseconds + (index * 100)),
+          duration: Duration(
+            milliseconds: duration.inMilliseconds + (index * 100),
+          ),
           curve: curve,
           builder: (context, value, child) {
             return Opacity(

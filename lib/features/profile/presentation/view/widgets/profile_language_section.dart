@@ -19,8 +19,9 @@ class ProfileLanguageSection extends StatelessWidget {
       ),
       onTap: () {
         final localizationProvider = context.read<LocalizationProvider>();
-        final newLang =
-            localizationProvider.currentLanguage == 'en' ? 'ar' : 'en';
+        final newLang = localizationProvider.currentLanguage == 'en'
+            ? 'ar'
+            : 'en';
         localizationProvider.changeLanguage(newLang);
       },
     );

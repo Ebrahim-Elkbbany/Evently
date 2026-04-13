@@ -90,15 +90,10 @@ class CustomTextFormField extends StatelessWidget {
             focusedBorder: focusedBorder,
             enabledBorder: enabledBorder,
             suffixIcon: suffixIcon != null
-                ? TextFieldSuffixIcon(
-                    icon: suffixIcon!,
-                    onTap: suffixIconTap,
-                  )
+                ? TextFieldSuffixIcon(icon: suffixIcon!, onTap: suffixIconTap)
                 : null,
             prefixIcon: prefixIcon != null
-                ? TextFieldPrefixIcon(
-                    icon: prefixIcon!,
-                  )
+                ? TextFieldPrefixIcon(icon: prefixIcon!)
                 : null,
           ),
         ),

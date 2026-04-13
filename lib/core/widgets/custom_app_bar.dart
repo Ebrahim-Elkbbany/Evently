@@ -32,9 +32,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       centerTitle: true,
       leading: showBackButton
-          ? Center(
-              child: BackWidget(onTap: onBackTap),
-            )
+          ? Center(child: BackWidget(onTap: onBackTap))
           : null,
       actions: actions,
     );

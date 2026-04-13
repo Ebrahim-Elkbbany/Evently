@@ -1,5 +1,6 @@
 import 'package:evently/core/navigation/app_routes.dart';
 import 'package:evently/core/services/firebase_services.dart';
+import 'package:evently/features/home/presentation/manager/home_provider.dart';
 import 'package:evently/features/layout/manager/layout_provider.dart';
 import 'package:evently/features/layout/presentation/layout_view.dart';
 import 'package:evently/features/login/presentation/manager/login_provider.dart';
@@ -7,8 +8,6 @@ import 'package:evently/features/login/presentation/views/login_view.dart';
 import 'package:evently/features/sign_up/presentation/manager/sign_up_provider.dart';
 import 'package:evently/features/sign_up/presentation/views/sign_up_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:evently/core/di/service_locator.dart';
-import 'package:evently/features/home/presentation/manager/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -22,13 +21,13 @@ abstract class AppRouter {
           return MaterialPageRoute(
             builder: (context) => currentUser == null
                 ? ChangeNotifierProvider(
-                    create: (context) => getIt<LoginProvider>(),
+                    create: (context) => LoginProvider(),
                     child: const LoginView(),
                   )
                 : MultiProvider(
                     providers: [
-                      ChangeNotifierProvider(create: (_) => getIt<LayoutProvider>()),
-                      ChangeNotifierProvider(create: (_) => getIt<HomeProvider>()),
+                      ChangeNotifierProvider(create: (_) => LayoutProvider()),
+                      ChangeNotifierProvider(create: (_) => HomeProvider()),
                     ],
                     child: const LayoutView(),
                   ),
@@ -37,8 +36,8 @@ abstract class AppRouter {
           return MaterialPageRoute(
             builder: (context) => MultiProvider(
               providers: [
-                ChangeNotifierProvider(create: (_) => getIt<LayoutProvider>()),
-                ChangeNotifierProvider(create: (_) => getIt<HomeProvider>()),
+                ChangeNotifierProvider(create: (_) => LayoutProvider()),
+                ChangeNotifierProvider(create: (_) => HomeProvider()),
               ],
               child: const LayoutView(),
             ),

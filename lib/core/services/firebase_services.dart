@@ -49,6 +49,7 @@ abstract class FirebaseServices {
     if (firebaseAuth.currentUser == null) return null;
     return await getUser(firebaseAuth.currentUser!.uid);
   }
+
   static Future<void> logout() async {
     await firebaseAuth.signOut();
   }
