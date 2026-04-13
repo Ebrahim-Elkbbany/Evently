@@ -656,11 +656,23 @@ abstract class AppLocalizations {
   /// **'Title'**
   String get title;
 
+  /// No description provided for @title_is_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Title is required'**
+  String get title_is_required;
+
   /// No description provided for @description.
   ///
   /// In en, this message translates to:
   /// **'Description'**
   String get description;
+
+  /// No description provided for @description_is_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Description is required'**
+  String get description_is_required;
 
   /// No description provided for @event_title.
   ///

@@ -22,16 +22,18 @@ class BackWidget extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap ?? () => context.pop(),
         child: Container(
-          width: 45.w,
-          height: 45.h,
+          margin: EdgeInsetsDirectional.only(start: 16.w),
+          width: 32.w,
+          height: 32.h,
           decoration: BoxDecoration(
-            color: backgroundColor ?? context.customColors.stroke,
+            color: backgroundColor ?? context.customColors.inputs,
             borderRadius: BorderRadius.circular(8.r),
+            border: Border.all(color: context.customColors.stroke),
           ),
           child: Icon(
             Icons.arrow_back_ios_new_rounded,
             size: 20.sp,
-            color: iconColor ?? context.customColors.primary,
+            color: iconColor ?? context.customColors.headLine,
           ),
         ),
       ),

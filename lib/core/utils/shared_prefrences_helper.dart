@@ -5,7 +5,6 @@ class SharedPrefsHelper {
 
   SharedPrefsHelper({required this.sharedPreferences});
 
-  // =================== Getters =================
   String? getString(String key) {
     return sharedPreferences.getString(key);
   }
@@ -22,7 +21,6 @@ class SharedPrefsHelper {
     return sharedPreferences.getDouble(key);
   }
 
-  // =================== Setters =================
   Future<void> setString(String key, String value) async {
     await sharedPreferences.setString(key, value);
   }

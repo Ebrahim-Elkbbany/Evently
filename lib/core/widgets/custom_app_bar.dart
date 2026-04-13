@@ -27,14 +27,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: CustomText(
         text: title,
         fontSize: 18.sp,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
         textColor: context.customColors.mainText,
       ),
       centerTitle: true,
       leading: showBackButton
-          ? Center(
-              child: BackWidget(onTap: onBackTap),
-            )
+          ? Center(child: BackWidget(onTap: onBackTap))
           : null,
       actions: actions,
     );

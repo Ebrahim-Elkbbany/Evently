@@ -10,10 +10,7 @@ class ButtonLoadingIndicator extends StatelessWidget {
     return SizedBox(
       height: 20.h,
       width: 20.h,
-      child: CircularProgressIndicator(
-        color: color,
-        strokeWidth: 2.w,
-      ),
+      child: CircularProgressIndicator(color: color, strokeWidth: 2.w),
     );
   }
 }

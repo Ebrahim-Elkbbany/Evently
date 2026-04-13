@@ -1,13 +1,14 @@
 import 'package:evently/core/theming/app_colors_extension.dart';
 import 'package:evently/core/theming/font_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTheme {
   static ThemeData get lightTheme =>
-      _buildTheme(AppColorsExtension.light, Brightness.dark);
+      _buildTheme(AppColorsExtension.light, Brightness.light);
   static ThemeData get darkTheme =>
-      _buildTheme(AppColorsExtension.dark, Brightness.light);
+      _buildTheme(AppColorsExtension.dark, Brightness.dark);
 
   static ThemeData _buildTheme(
     AppColorsExtension colors,
@@ -25,7 +26,7 @@ class AppTheme {
         selectionHandleColor: colors.primary,
       ),
       canvasColor: colors.background,
-      //  TextField Theme
+
       inputDecorationTheme: InputDecorationTheme(
         isDense: true,
         filled: true,
@@ -56,12 +57,14 @@ class AppTheme {
         ),
       ),
 
-      //  Card & Divider Theme
       cardTheme: CardThemeData(
+        margin: EdgeInsets.zero,
+        clipBehavior: Clip.antiAlias,
         color: colors.inputs,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(16.r),
+          side: BorderSide(color: colors.stroke, width: 1),
         ),
       ),
       dividerTheme: DividerThemeData(
@@ -70,7 +73,6 @@ class AppTheme {
         space: 20.h,
       ),
 
-      //  Dialog Theme
       dialogTheme: DialogThemeData(
         backgroundColor: colors.background,
         shape: RoundedRectangleBorder(
@@ -78,7 +80,6 @@ class AppTheme {
         ),
       ),
 
-      //  Text Theme
       textTheme: TextTheme(
         headlineMedium: FontStyles.font24SemiBold.copyWith(
           color: colors.headLine,
@@ -96,8 +97,16 @@ class AppTheme {
         ),
       ),
 
-      //  AppBar Theme
       appBarTheme: AppBarTheme(
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: brightness == Brightness.dark
+              ? Brightness.light
+              : Brightness.dark,
+          statusBarBrightness: brightness == Brightness.dark
+              ? Brightness.dark
+              : Brightness.light,
+        ),
         titleTextStyle: FontStyles.font20Medium.copyWith(
           color: colors.mainText,
         ),
@@ -114,10 +123,11 @@ class AppTheme {
         unselectedLabelStyle: FontStyles.font12Regular.copyWith(
           color: colors.disable,
         ),
-        backgroundColor: colors.background,
+        backgroundColor: colors.bottomNavColor,
         selectedItemColor: colors.primary,
         unselectedItemColor: colors.disable,
         type: BottomNavigationBarType.fixed,
+        enableFeedback: false,
         elevation: 0,
         showSelectedLabels: true,
         showUnselectedLabels: true,

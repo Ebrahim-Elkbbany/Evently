@@ -21,9 +21,7 @@ class CustomLoadingOverlay extends StatelessWidget {
             filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
             child: Container(
               color: Colors.black.withValues(alpha: 0.3),
-              child: const Center(
-                child: CircularProgressIndicator(),
-              ),
+              child: const Center(child: CircularProgressIndicator()),
             ),
           ),
       ],

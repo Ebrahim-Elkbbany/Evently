@@ -44,7 +44,7 @@ class _LoginFormState extends State<LoginForm> {
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
-                  !AppRegexHelper.isEmailValid(value)) {
+                  !AppRegexHelper.isEmailValid(value.trim())) {
                 return context.lan.invalidEmail;
               }
               return null;
@@ -80,7 +80,7 @@ class _LoginFormState extends State<LoginForm> {
                     .read<LoginProvider>()
                     .loginWithEmailAndPassword(
                       SignInModel(
-                        email: emailController.text,
+                        email: emailController.text.trim(),
                         password: passwordController.text,
                       ),
                       context,
