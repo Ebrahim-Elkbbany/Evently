@@ -1,3 +1,4 @@
+import 'package:evently/core/di/service_locator.dart';
 import 'package:evently/core/services/fcm_service.dart';
 import 'package:evently/core/utils/change_lang/localization_provider.dart';
 import 'package:evently/evently_app.dart';
@@ -10,6 +11,7 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await setupServiceLocator();
   await FCMService.initFCM();
   runApp(
     MultiProvider(

@@ -1,3 +1,6 @@
+import 'package:evently/core/di/service_locator.dart';
+import 'package:evently/features/onboarding/presentation/manager/onboarding_provider.dart';
+import 'package:evently/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:evently/core/navigation/app_routes.dart';
 import 'package:evently/core/services/firebase_services.dart';
 import 'package:evently/features/add_event/presentation/view/add_event_view.dart';
@@ -59,6 +62,13 @@ abstract class AppRouter {
           );
         case AppRoutes.addEventView:
           return MaterialPageRoute(builder: (context) => const AddEventView());
+        case AppRoutes.onboardingView:
+          return MaterialPageRoute(
+            builder: (_) => ChangeNotifierProvider(
+              create: (_) => getIt<OnboardingProvider>(),
+              child: const OnboardingView(),
+            ),
+          );
         default:
           return _errorRoute();
       }
