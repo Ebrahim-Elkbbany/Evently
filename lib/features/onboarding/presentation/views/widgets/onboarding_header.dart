@@ -8,17 +8,14 @@ import '../../manager/onboarding_provider.dart';
 
 class OnboardingHeader extends StatelessWidget {
   final int totalPages;
-  
-  const OnboardingHeader({
-    super.key,
-    required this.totalPages,
-  });
+
+  const OnboardingHeader({super.key, required this.totalPages});
 
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<OnboardingProvider>();
     final isDark = context.isDark;
-    
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -68,7 +65,9 @@ class OnboardingHeader extends StatelessWidget {
               decoration: BoxDecoration(
                 color: isDark ? Colors.transparent : Colors.white,
                 border: Border.all(
-                  color: isDark ? context.customColors.primary : Colors.transparent,
+                  color: isDark
+                      ? context.customColors.primary
+                      : Colors.transparent,
                   width: 1.5.w,
                 ),
                 borderRadius: BorderRadius.circular(12.r),

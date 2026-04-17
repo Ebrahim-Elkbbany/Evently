@@ -41,7 +41,10 @@ class WelcomeView extends StatelessWidget {
               SizedBox(height: 32.h),
               CustomButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, AppRoutes.onboardingView);
+                  Navigator.pushReplacementNamed(
+                    context,
+                    AppRoutes.onboardingView,
+                  );
                 },
                 buttonName: context.lan.letsStart,
               ),

@@ -26,7 +26,7 @@ class OnboardingChoiceRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = context.isDark;    
+    final isDark = context.isDark;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -73,7 +73,7 @@ class OnboardingChoiceRow extends StatelessWidget {
   }) {
     final bool hasText = text != null;
     final Color selectedBgColor = context.customColors.primary;
-    
+
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(12.r),
@@ -87,17 +87,14 @@ class OnboardingChoiceRow extends StatelessWidget {
         decoration: BoxDecoration(
           color: isSelected ? selectedBgColor : Colors.transparent,
           borderRadius: BorderRadius.circular(12.r),
-          border: Border.all(
-            color: selectedBgColor,
-            width: 1.5.w,
-          ),
+          border: Border.all(color: selectedBgColor, width: 1.5.w),
         ),
         child: hasText
             ? Text(
                 text,
                 style: context.textTheme.titleSmall?.copyWith(
-                  color: isSelected 
-                      ? Colors.white 
+                  color: isSelected
+                      ? Colors.white
                       : (isDark ? Colors.white : context.customColors.primary),
                   fontWeight: FontWeight.w600,
                   fontSize: 16.sp,
@@ -105,8 +102,8 @@ class OnboardingChoiceRow extends StatelessWidget {
               )
             : Icon(
                 icon,
-                color: isSelected 
-                    ? Colors.white 
+                color: isSelected
+                    ? Colors.white
                     : (isDark ? Colors.white : context.customColors.primary),
                 size: 20.sp,
               ),

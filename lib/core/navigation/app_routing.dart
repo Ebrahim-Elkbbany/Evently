@@ -1,7 +1,4 @@
 import 'package:evently/core/di/service_locator.dart';
-import 'package:evently/features/welcome/presentation/view/welcome_view.dart';
-import 'package:evently/features/onboarding/presentation/manager/onboarding_provider.dart';
-import 'package:evently/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:evently/core/navigation/app_routes.dart';
 import 'package:evently/core/services/firebase_services.dart';
 import 'package:evently/features/add_event/presentation/view/add_event_view.dart';
@@ -10,8 +7,11 @@ import 'package:evently/features/layout/manager/layout_provider.dart';
 import 'package:evently/features/layout/presentation/layout_view.dart';
 import 'package:evently/features/login/presentation/manager/login_provider.dart';
 import 'package:evently/features/login/presentation/views/login_view.dart';
+import 'package:evently/features/onboarding/presentation/manager/onboarding_provider.dart';
+import 'package:evently/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:evently/features/sign_up/presentation/manager/sign_up_provider.dart';
 import 'package:evently/features/sign_up/presentation/views/sign_up_view.dart';
+import 'package:evently/features/welcome/presentation/view/welcome_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -71,9 +71,7 @@ abstract class AppRouter {
             ),
           );
         case AppRoutes.welcomeView:
-          return MaterialPageRoute(
-            builder: (context) => const WelcomeView(),
-          );
+          return MaterialPageRoute(builder: (context) => const WelcomeView());
         default:
           return _errorRoute();
       }
