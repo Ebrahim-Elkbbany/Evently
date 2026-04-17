@@ -1,8 +1,10 @@
+import 'package:evently/core/navigation/app_routes.dart';
+import 'package:evently/core/navigation/navigation_context_extension.dart';
 import 'package:evently/core/utils/constants/assets_paths.dart';
 import 'package:evently/core/utils/constants/storage_keys.dart';
 import 'package:evently/core/utils/shared_prefrences_helper.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
-import 'package:evently/features/onboarding/domain/entities/onboarding_entity.dart';
+import 'package:evently/features/onboarding/data/models/onboarding_model.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingProvider extends ChangeNotifier {
@@ -18,28 +20,28 @@ class OnboardingProvider extends ChangeNotifier {
     await _prefsHelper.setBool(StorageKeys.onBoardingShowed, true);
   }
 
-  List<OnboardingEntity> onboardingData(BuildContext context) => [
-        OnboardingEntity(
-          image: AppImages.onboarding1,
-          title: context.lan.onboarding1Title,
-          subtitle: context.lan.onboarding1Subtitle,
-        ),
-        OnboardingEntity(
-          image: AppImages.onboarding2,
-          title: context.lan.onboarding2Title,
-          subtitle: context.lan.onboarding2Subtitle,
-        ),
-        OnboardingEntity(
-          image: AppImages.onboarding3,
-          title: context.lan.onboarding3Title,
-          subtitle: context.lan.onboarding3Subtitle,
-        ),
-        OnboardingEntity(
-          image: AppImages.onboarding4,
-          title: context.lan.onboarding4Title,
-          subtitle: context.lan.onboarding4Subtitle,
-        ),
-      ];
+  List<OnboardingModel> onboardingData(BuildContext context) => [
+    OnboardingModel(
+      image: AppImages.onboarding1,
+      title: context.lan.onboarding1Title,
+      subtitle: context.lan.onboarding1Subtitle,
+    ),
+    OnboardingModel(
+      image: AppImages.onboarding2,
+      title: context.lan.onboarding2Title,
+      subtitle: context.lan.onboarding2Subtitle,
+    ),
+    OnboardingModel(
+      image: AppImages.onboarding3,
+      title: context.lan.onboarding3Title,
+      subtitle: context.lan.onboarding3Subtitle,
+    ),
+    OnboardingModel(
+      image: AppImages.onboarding4,
+      title: context.lan.onboarding4Title,
+      subtitle: context.lan.onboarding4Subtitle,
+    ),
+  ];
 
   void updateIndex(int index) {
     if (_currentIndex == index) return;
@@ -59,11 +61,7 @@ class OnboardingProvider extends ChangeNotifier {
   }
 
   void skip(BuildContext context, int totalPages) {
-    pageController.animateToPage(
-      totalPages - 1,
-      duration: const Duration(milliseconds: 600),
-      curve: Curves.fastOutSlowIn,
-    );
+    finishOnboarding(context);
   }
 
   Future<void> finishOnboarding(BuildContext context) async {

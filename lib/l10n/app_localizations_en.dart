@@ -385,4 +385,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get successfully_signed_up => 'Successfully signed up';
+
+  @override
+  String get letsStart => 'Let\'s Start';
+
+  @override
+  String get getStarted => 'Get Started';
+
+  @override
+  String get theme => 'Theme';
+
+  @override
+  String get english => 'English';
+
+  @override
+  String get arabic => 'Arabic';
 }

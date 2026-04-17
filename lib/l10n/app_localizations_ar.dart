@@ -385,4 +385,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get successfully_signed_up => 'تم التسجيل بنجاح';
+
+  @override
+  String get letsStart => 'هيا نبدأ';
+
+  @override
+  String get getStarted => 'إبدأ الأن';
+
+  @override
+  String get theme => 'المظهر';
+
+  @override
+  String get english => 'الإنجليزية';
+
+  @override
+  String get arabic => 'العربية';
 }

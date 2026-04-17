@@ -1,4 +1,5 @@
 import 'package:evently/core/di/service_locator.dart';
+import 'package:evently/features/welcome/presentation/view/welcome_view.dart';
 import 'package:evently/features/onboarding/presentation/manager/onboarding_provider.dart';
 import 'package:evently/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:evently/core/navigation/app_routes.dart';
@@ -68,6 +69,10 @@ abstract class AppRouter {
               create: (_) => getIt<OnboardingProvider>(),
               child: const OnboardingView(),
             ),
+          );
+        case AppRoutes.welcomeView:
+          return MaterialPageRoute(
+            builder: (context) => const WelcomeView(),
           );
         default:
           return _errorRoute();

@@ -18,6 +18,7 @@ extension ContextExt on BuildContext {
   Widget gapH(double h) => SizedBox(height: h.h);
   Widget gapW(double w) => SizedBox(width: w.w);
 
+  bool get isDark => theme.brightness == Brightness.dark;
   bool get isArabic => Localizations.localeOf(this).languageCode == 'ar';
 
   AppLocalizations get lan => AppLocalizations.of(this)!;
