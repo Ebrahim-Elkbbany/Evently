@@ -400,4 +400,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get arabic => 'Arabic';
+
+  @override
+  String get meetings => 'Meetings';
+
+  @override
+  String get event_added_successfully => 'Event added successfully';
 }

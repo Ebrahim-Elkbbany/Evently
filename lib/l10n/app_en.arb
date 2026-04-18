@@ -127,5 +127,7 @@
   "getStarted": "Get Started",
   "theme": "Theme",
   "english": "English",
-  "arabic": "Arabic"
+  "arabic": "Arabic",
+  "meetings": "Meetings",
+  "event_added_successfully": "Event added successfully"
 }

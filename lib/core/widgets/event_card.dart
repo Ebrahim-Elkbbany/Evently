@@ -1,6 +1,8 @@
+import 'package:evently/core/models/category_model.dart';
 import 'package:evently/core/theming/font_weight_helper.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
-import 'package:evently/features/home/data/models/event_model.dart';
+import 'package:evently/core/utils/get_date_and_month.dart';
+import 'package:evently/features/add_event/data/models/event_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -10,6 +12,9 @@ class EventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CategoryModel eventCategory = CategoryModel.getCategoriesList(
+      context,
+    )[int.parse(event.categoryId)];
     return Card(
       child: Container(
         height: 193.h,
@@ -17,7 +22,11 @@ class EventCard extends StatelessWidget {
         decoration: BoxDecoration(
           image: event.imagePath.isNotEmpty
               ? DecorationImage(
-                  image: AssetImage(event.imagePath),
+                  image: AssetImage(
+                    context.isDark
+                        ? eventCategory.imagePathDark
+                        : eventCategory.imagePathLight,
+                  ),
                   fit: BoxFit.cover,
                 )
               : null,
@@ -33,18 +42,18 @@ class EventCard extends StatelessWidget {
                 color: context.customColors.background,
                 borderRadius: BorderRadius.circular(8.r),
               ),
-              child: Row(
+              child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    "Jan",
+                    GetDateAndMonth.getDay(event.date),
                     style: context.textTheme.titleSmall?.copyWith(
                       color: context.customColors.primary,
                     ),
                   ),
                   context.gapW(4),
                   Text(
-                    event.date.split('/').first,
+                    GetDateAndMonth.getMonth(event.date),
                     style: context.textTheme.titleSmall?.copyWith(
                       color: context.customColors.primary,
                     ),

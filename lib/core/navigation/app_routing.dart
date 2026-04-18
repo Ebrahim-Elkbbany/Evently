@@ -1,6 +1,8 @@
-import 'package:evently/core/di/service_locator.dart';
 import 'package:evently/core/navigation/app_routes.dart';
 import 'package:evently/core/services/firebase_services.dart';
+import 'package:evently/core/utils/constants/storage_keys.dart';
+import 'package:evently/core/utils/shared_prefrences_helper.dart';
+import 'package:evently/features/add_event/presentation/manager/add_event_provider.dart';
 import 'package:evently/features/add_event/presentation/view/add_event_view.dart';
 import 'package:evently/features/home/presentation/manager/home_provider.dart';
 import 'package:evently/features/layout/manager/layout_provider.dart';
@@ -23,8 +25,18 @@ abstract class AppRouter {
     try {
       switch (name) {
         case AppRoutes.initialRoute:
+          final bool onBoardingShowed =
+              sharedPrefsHelper.sharedPreferences.getBool(
+                StorageKeys.onBoardingShowed,
+              ) ??
+              false;
           return MaterialPageRoute(
-            builder: (context) => currentUser == null
+            builder: (context) => !onBoardingShowed
+                ? ChangeNotifierProvider(
+                    create: (_) => OnboardingProvider(sharedPrefsHelper),
+                    child: const OnboardingView(),
+                  )
+                : currentUser == null
                 ? ChangeNotifierProvider(
                     create: (context) => LoginProvider(),
                     child: const LoginView(),
@@ -62,11 +74,16 @@ abstract class AppRouter {
             ),
           );
         case AppRoutes.addEventView:
-          return MaterialPageRoute(builder: (context) => const AddEventView());
+          return MaterialPageRoute(
+            builder: (context) => ChangeNotifierProvider(
+              create: (_) => AddEventProvider(),
+              child: const AddEventView(),
+            ),
+          );
         case AppRoutes.onboardingView:
           return MaterialPageRoute(
             builder: (_) => ChangeNotifierProvider(
-              create: (_) => getIt<OnboardingProvider>(),
+              create: (_) => OnboardingProvider(sharedPrefsHelper),
               child: const OnboardingView(),
             ),
           );

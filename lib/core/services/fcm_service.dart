@@ -40,8 +40,12 @@ abstract class FCMService {
   }
 
   static Future<void> _getDeviceToken() async {
-    String? token = await messaging.getToken();
-    log(token ?? ' no token');
+    try {
+      String? token = await messaging.getToken();
+      log(token ?? 'no token');
+    } catch (e) {
+      log('Failed to get FCM token: $e');
+    }
   }
 
   static Future<void> _handleForgroundMessage() async {

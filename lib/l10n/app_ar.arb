@@ -127,5 +127,7 @@
   "getStarted": "إبدأ الأن",
   "theme": "المظهر",
   "english": "الإنجليزية",
-  "arabic": "العربية"
+  "arabic": "العربية",
+  "meetings": "الاجتماعات",
+  "event_added_successfully": "تم إضافة الفعالية بنجاح"
 }

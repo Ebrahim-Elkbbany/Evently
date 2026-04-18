@@ -1,12 +1,12 @@
-import 'package:evently/core/utils/constants/assets_paths.dart';
-import 'package:evently/features/home/data/models/event_model.dart';
+import 'package:evently/core/services/firebase_services.dart';
+import 'package:evently/features/add_event/data/models/event_model.dart';
 import 'package:flutter/material.dart';
 
 enum HomeViewState { initial, loading, success, failure }
 
 class HomeProvider extends ChangeNotifier {
   HomeProvider() {
-    getEvents(0);
+    getEvents("0");
   }
 
   int _selectedTabIndex = 0;
@@ -20,31 +20,19 @@ class HomeProvider extends ChangeNotifier {
     if (_selectedTabIndex == index) return;
     _selectedTabIndex = index;
     notifyListeners();
-    getEvents(index);
+    getEvents(index.toString());
   }
 
-  Future<void> getEvents(int categoryIndex) async {
+  Future<void> getEvents(String categoryId) async {
     state = HomeViewState.loading;
+    events = [];
     notifyListeners();
-    final categories = ['All', 'Sports', 'Birthday', 'Book Club', 'Exhibition'];
-    final categoryName = categories[categoryIndex];
     try {
-      await Future.delayed(const Duration(seconds: 2));
-      events = List.generate(10, (index) {
-        final currentDate = DateTime.now().add(Duration(days: index));
-        return EventModel(
-          id: '$categoryName-$index',
-          title: '$categoryName Event $index',
-          date: "${currentDate.day}/${currentDate.month}/${currentDate.year}",
-          imagePath: AppImages.birthday,
-          description: '',
-          category: '',
-        );
-      });
+      events = await FirebaseServices.getEvents(categoryId);
       state = HomeViewState.success;
       notifyListeners();
     } catch (e) {
-      errorMessage = 'Failed to load events';
+      errorMessage = e.toString();
       state = HomeViewState.failure;
       notifyListeners();
     }

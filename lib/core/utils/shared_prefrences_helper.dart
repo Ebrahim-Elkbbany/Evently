@@ -1,5 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
+late final SharedPrefsHelper sharedPrefsHelper;
+
 class SharedPrefsHelper {
   final SharedPreferences sharedPreferences;
 

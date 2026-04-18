@@ -54,9 +54,9 @@ extension Navigation on BuildContext {
     }
   }
 
-  void pop() {
+  void pop<T>([T? result]) {
     if (canPop()) {
-      Navigator.of(this).pop();
+      Navigator.of(this).pop(result);
     } else {
       debugPrint("⚠️ لا يمكن الرجوع، أنت في الشاشة الرئيسية.");
     }
