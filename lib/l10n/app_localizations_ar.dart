@@ -400,4 +400,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get arabic => 'العربية';
+
+  @override
+  String get meetings => 'الاجتماعات';
+
+  @override
+  String get event_added_successfully => 'تم إضافة الفعالية بنجاح';
 }

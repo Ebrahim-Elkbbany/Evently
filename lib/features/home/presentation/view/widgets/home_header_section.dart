@@ -1,4 +1,4 @@
-import 'package:evently/core/models/tab_bar_model.dart';
+import 'package:evently/core/models/category_model.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/widgets/custom_tab_bar.dart';
 import 'package:evently/features/home/presentation/manager/home_provider.dart';
@@ -37,12 +37,14 @@ class HomeHeaderSection extends StatelessWidget {
                     context.gapH(4),
                     Consumer<ProfileProvider>(
                       builder: (context, profileProvider, child) {
-                        return Text(
-                          profileProvider.user?.name ?? "...",
-                          style: context.textTheme.titleLarge?.copyWith(
-                            color: context.customColors.mainText,
-                          ),
-                        );
+                        return profileProvider.isLoading
+                            ? SizedBox.shrink()
+                            : Text(
+                                profileProvider.user!.name,
+                                style: context.textTheme.titleLarge?.copyWith(
+                                  color: context.customColors.mainText,
+                                ),
+                              );
                       },
                     ),
                   ],
@@ -84,7 +86,7 @@ class HomeHeaderSection extends StatelessWidget {
           Consumer<HomeProvider>(
             builder: (context, provider, child) {
               return CustomTabBar(
-                tabs: TabItemModel.getTabBarList(context),
+                tabs: CategoryModel.getCategoriesList(context),
                 selectedIndex: provider.selectedTabIndex,
                 onTabChanged: (index) {
                   provider.changeTabIndex(index);

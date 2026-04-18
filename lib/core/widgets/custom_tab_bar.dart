@@ -1,11 +1,11 @@
-import 'package:evently/core/models/tab_bar_model.dart';
+import 'package:evently/core/models/category_model.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/widgets/custom_tab_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTabBar extends StatelessWidget {
-  final List<TabItemModel> tabs;
+  final List<CategoryModel> tabs;
   final int selectedIndex;
   final Function(int) onTabChanged;
 

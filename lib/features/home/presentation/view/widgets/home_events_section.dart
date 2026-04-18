@@ -13,43 +13,50 @@ class HomeEventsSection extends StatelessWidget {
     return Consumer<HomeProvider>(
       builder: (context, homeProvider, child) {
         if (homeProvider.state == HomeViewState.loading) {
-          return SizedBox(
-            height: 450.h,
-            child: Center(
-              child: CircularProgressIndicator(
-                color: context.customColors.primary,
+          return SliverToBoxAdapter(
+            child: SizedBox(
+              height: 450.h,
+              child: Center(
+                child: CircularProgressIndicator(
+                  color: context.customColors.primary,
+                ),
               ),
             ),
           );
         } else if (homeProvider.state == HomeViewState.failure) {
-          return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: Center(
-              child: Text(
-                homeProvider.errorMessage ?? context.lan.somethingWentWrong,
+          return SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Center(
+                child: Text(
+                  homeProvider.errorMessage ?? context.lan.somethingWentWrong,
+                ),
               ),
             ),
           );
         } else if (homeProvider.events.isEmpty) {
-          return Center(
-            child: Padding(
-              padding: EdgeInsets.only(top: 100.h),
-              child: Text(
-                context.lan.noDataFound,
-                style: context.textTheme.titleMedium,
+          return SliverToBoxAdapter(
+            child: Center(
+              child: Padding(
+                padding: EdgeInsets.only(top: 100.h),
+                child: Text(
+                  context.lan.noDataFound,
+                  style: context.textTheme.titleMedium,
+                ),
               ),
             ),
           );
         } else {
-          return ListView.separated(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: homeProvider.events.length,
-            itemBuilder: (context, index) {
-              return EventCard(event: homeProvider.events[index]);
-            },
-            separatorBuilder: (context, index) => context.gapH(16),
+          return SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+            sliver: SliverList(
+              delegate: SliverChildBuilderDelegate((context, index) {
+                return Padding(
+                  padding: EdgeInsets.only(bottom: 16.h),
+                  child: EventCard(event: homeProvider.events[index]),
+                );
+              }, childCount: homeProvider.events.length),
+            ),
           );
         }
       },

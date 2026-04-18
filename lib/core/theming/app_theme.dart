@@ -26,7 +26,6 @@ class AppTheme {
         selectionHandleColor: colors.primary,
       ),
       canvasColor: colors.background,
-
       inputDecorationTheme: InputDecorationTheme(
         isDense: true,
         filled: true,
@@ -56,7 +55,8 @@ class AppTheme {
           ),
         ),
       ),
-
+      colorSchemeSeed: colors.primary,
+      useMaterial3: true,
       cardTheme: CardThemeData(
         margin: EdgeInsets.zero,
         clipBehavior: Clip.antiAlias,
@@ -79,7 +79,52 @@ class AppTheme {
           borderRadius: BorderRadius.circular(16.r),
         ),
       ),
+      timePickerTheme: TimePickerThemeData(
+        dayPeriodColor: colors.primary.withValues(alpha: 0.1),
 
+        dayPeriodBorderSide: BorderSide(color: colors.stroke, width: 1),
+        dayPeriodShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.r),
+        ),
+        dayPeriodTextColor: colors.mainText,
+        dialBackgroundColor: colors.inputs,
+        dialHandColor: colors.primary,
+        dialTextColor: colors.mainText,
+        hourMinuteShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.r),
+        ),
+        hourMinuteColor: colors.inputs,
+        hourMinuteTextColor: colors.mainText,
+
+        cancelButtonStyle: TextButton.styleFrom(
+          foregroundColor: colors.primary,
+        ),
+        confirmButtonStyle: TextButton.styleFrom(
+          foregroundColor: colors.primary,
+        ),
+        backgroundColor: colors.background,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.r),
+        ),
+      ),
+      datePickerTheme: DatePickerThemeData(
+        backgroundColor: colors.background,
+        headerBackgroundColor: colors.background,
+        headerForegroundColor: colors.mainText,
+        dividerColor: colors.stroke,
+        dayStyle: FontStyles.font14Regular,
+        surfaceTintColor: Colors.transparent,
+        yearStyle: FontStyles.font14Regular,
+        cancelButtonStyle: TextButton.styleFrom(
+          foregroundColor: colors.primary,
+        ),
+        confirmButtonStyle: TextButton.styleFrom(
+          foregroundColor: colors.primary,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.r),
+        ),
+      ),
       textTheme: TextTheme(
         headlineMedium: FontStyles.font24SemiBold.copyWith(
           color: colors.headLine,

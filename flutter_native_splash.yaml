@@ -1,14 +1,14 @@
 flutter_native_splash:
   web: false
   #! FOR ALL PLATFORM, except Android 12+:
-  color: "#F4F7FF0" 
+  color: "#F4F7FF" 
   color_dark: "#000F30"
   image: assets/images/splash_logo_light.png
   image_dark: assets/images/splash_logo_dark.png
 
   #! ANDROID 12+ configuration:
   android_12:
-    color: "#F4F7FF0" 
+    color: "#F4F7FF" 
     color_dark: "#000F30"
     image: assets/images/splash_logo_light.png   
     image_dark: assets/images/splash_logo_dark.png  
