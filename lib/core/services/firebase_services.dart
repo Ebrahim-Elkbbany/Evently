@@ -82,21 +82,19 @@ abstract class FirebaseServices {
     return doc.set(modelWithId);
   }
 
-  static Future<UserCredential?> signInWithGoogle() async {
+  static Future<UserCredential> signInWithGoogle() async {
     await GoogleSignIn.instance.initialize();
     final googleUser = await GoogleSignIn.instance.authenticate();
-
     GoogleSignInAuthentication googleAuth = googleUser.authentication;
     final credential = GoogleAuthProvider.credential(
       accessToken: googleAuth.idToken,
       idToken: googleAuth.idToken,
     );
-
-    // 5. إتمام تسجيل الدخول
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
   static Future<void> logout() async {
     await firebaseAuth.signOut();
+    await GoogleSignIn.instance.signOut();
   }
 }

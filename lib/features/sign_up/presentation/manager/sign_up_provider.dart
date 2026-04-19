@@ -33,4 +33,32 @@ class SignUpProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+    Future<Either<String, void>> signUpWithGoogle(
+    SignUpModel signUpModel,
+  ) async {
+    try {
+      isLoading = true;
+      notifyListeners();
+      UserCredential userCredential = await FirebaseServices.signInWithGoogle();
+      if(userCredential.additionalUserInfo!.isNewUser == false){
+        return right(null);
+      }
+      FirebaseServices.saveUser(
+        UserModel(
+          userId: userCredential.user!.uid,
+          name: signUpModel.name!,
+          email: userCredential.user!.email!,
+        ),
+      );
+      return right(null);
+    } on FirebaseAuthException catch (erorr) {
+      return left(erorr.code);
+    } catch (e) {
+      return left(e.toString());
+    } finally {
+      isLoading = false;
+      notifyListeners();
+    }
+  }
 }
