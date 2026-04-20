@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:evently/core/failure/failures.dart';
 import 'package:evently/core/services/firebase_services.dart';
 import 'package:evently/features/add_event/data/models/event_model.dart';
-import 'package:evently/features/add_event/presentation/manager/add_event_provider.dart';
 import 'package:evently/features/sign_up/data/models/user_model.dart';
 import 'package:flutter/material.dart';
 
@@ -72,9 +71,7 @@ class EditEventProvider extends ChangeNotifier {
         categoryId: (selectedCategoryIndex + 1).toString(),
         imagePath: "imagePath",
       );
-
       await FirebaseServices.updateEvent(updatedEvent);
-
       state = EditEventViewState.success;
       notifyListeners();
       return const Right('تم تعديل الفعالية بنجاح');

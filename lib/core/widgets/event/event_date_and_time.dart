@@ -29,11 +29,15 @@ class EventDateAndTime extends StatelessWidget {
             label: DateFormat('dd-MM-yyyy').format(selectedDate),
             actionText: context.lan.choose_date,
             onTap: () async {
+              DateTime firstDate = DateTime.now();
+              DateTime initialDate = selectedDate.isBefore(firstDate)
+                  ? firstDate
+                  : selectedDate;
               DateTime? pickedDate = await showDatePicker(
                 context: context,
-                firstDate: DateTime.now(),
+                firstDate: firstDate,
                 lastDate: DateTime(DateTime.now().year + 5),
-                initialDate: selectedDate,
+                initialDate: initialDate,
               );
               if (pickedDate != null) {
                 onDateChanged(pickedDate);

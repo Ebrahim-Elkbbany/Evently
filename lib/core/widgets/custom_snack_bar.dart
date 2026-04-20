@@ -14,24 +14,20 @@ class CustomSnackBar {
   }) {
     final colors = Theme.of(context).extension<AppColorsExtension>();
 
-    Color backgroundColor;
+    Color backgroundColor = colors?.primary ?? const Color(0xFF2196F3);
     IconData icon;
 
     switch (type) {
       case CustomSnackBarType.success:
-        backgroundColor = colors?.success ?? const Color(0xFF4CAF50);
         icon = Icons.check_circle_outline;
         break;
       case CustomSnackBarType.error:
-        backgroundColor = colors?.error ?? const Color(0xFFE53935);
         icon = Icons.error_outline;
         break;
       case CustomSnackBarType.warning:
-        backgroundColor = colors?.warning ?? const Color(0xFFFFA000);
         icon = Icons.warning_amber_rounded;
         break;
       case CustomSnackBarType.info:
-        backgroundColor = colors?.primary ?? const Color(0xFF2196F3);
         icon = Icons.info_outline;
         break;
     }

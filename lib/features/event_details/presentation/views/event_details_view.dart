@@ -23,10 +23,7 @@ class EventDetailsView extends StatelessWidget {
         actions: [
           CustomIconButton(
             onTap: () {
-              context.pushNamed(
-                AppRoutes.editEventView,
-                arguments: event,
-              );
+              context.pushNamed(AppRoutes.editEventView, arguments: event);
             },
             icon: Icons.edit_outlined,
             iconColor: context.customColors.primary,
@@ -51,6 +48,7 @@ class EventDetailsView extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
+          backgroundColor: context.customColors.inputs,
           title: Text(context.lan.delete),
           content: Text(context.lan.are_you_sure_to_delete_this_event),
           actions: [
@@ -62,8 +60,10 @@ class EventDetailsView extends StatelessWidget {
               onPressed: () async {
                 await FirebaseServices.deleteEvent(event.eventId);
                 if (context.mounted) {
-                  Navigator.pop(context);
-                  context.pop();
+                  context.pushNamedAndRemoveUntil(
+                    AppRoutes.layoutView,
+                    predicate: (route) => false,
+                  );
                   CustomSnackBar.show(
                     context: context,
                     message: context.lan.event_deleted_successfully,

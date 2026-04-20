@@ -1,4 +1,5 @@
 import 'package:evently/core/models/category_model.dart';
+import 'package:evently/core/navigation/app_routes.dart';
 import 'package:evently/core/navigation/navigation_context_extension.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/widgets/custom_app_bar.dart';
@@ -51,7 +52,10 @@ class EditEventView extends StatelessWidget {
                         message: context.lan.event_updated_successfully,
                         type: CustomSnackBarType.success,
                       );
-                      context.pop(true);
+                      context.pushNamedAndRemoveUntil(
+                        AppRoutes.layoutView,
+                        predicate: (route) => false,
+                      );
                     },
                   );
                 });
