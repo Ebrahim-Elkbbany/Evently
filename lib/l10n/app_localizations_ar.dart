@@ -406,4 +406,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get event_added_successfully => 'تم إضافة الفعالية بنجاح';
+
+  @override
+  String get event_updated_successfully => 'تم تحديث الفعالية بنجاح';
+
+  @override
+  String get event_deleted_successfully => 'تم حذف الفعالية بنجاح';
+
+  @override
+  String get are_you_sure_to_delete_this_event =>
+      'هل أنت متأكد من حذف هذه الفعالية؟';
 }

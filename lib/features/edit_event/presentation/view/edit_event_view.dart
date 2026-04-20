@@ -5,23 +5,24 @@ import 'package:evently/core/widgets/custom_app_bar.dart';
 import 'package:evently/core/widgets/custom_snack_bar.dart';
 import 'package:evently/features/add_event/presentation/manager/add_event_provider.dart';
 import 'package:evently/features/add_event/presentation/view/widgets/event_form_body.dart';
+import 'package:evently/features/edit_event/presentation/manager/edit_event_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class AddEventView extends StatelessWidget {
-  const AddEventView({super.key});
+class EditEventView extends StatelessWidget {
+  const EditEventView({super.key});
 
   @override
   Widget build(BuildContext context) {
     final categories = CategoryModel.getCategoriesWithoutAll(context);
     return Scaffold(
       appBar: CustomAppBar(
-        title: context.lan.add_event,
+        title: context.lan.update_event,
         onBackTap: () {
           context.pop();
         },
       ),
-      body: Consumer<AddEventProvider>(
+      body: Consumer<EditEventProvider>(
         builder: (BuildContext context, provider, Widget? child) {
           return EventFormBody(
             formKey: provider.formKey,
@@ -34,11 +35,11 @@ class AddEventView extends StatelessWidget {
             selectedTime: provider.selectedTime,
             onDateChanged: provider.changeSelectedDate,
             onTimeChanged: provider.changeSelectedTime,
-            buttonName: context.lan.add_event,
+            buttonName: context.lan.update_event,
             isLoading: provider.state == AddEventViewState.loading,
             onSubmit: () {
               if (provider.formKey.currentState!.validate()) {
-                provider.addEvent().then((result) {
+                provider.updateEvent().then((result) {
                   result.fold(
                     (failure) => CustomSnackBar.show(
                       context: context,
@@ -48,7 +49,7 @@ class AddEventView extends StatelessWidget {
                     (_) {
                       CustomSnackBar.show(
                         context: context,
-                        message: context.lan.event_added_successfully,
+                        message: context.lan.event_updated_successfully,
                         type: CustomSnackBarType.success,
                       );
                       context.pop(true);

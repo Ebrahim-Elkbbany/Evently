@@ -1,6 +1,7 @@
 import 'package:evently/core/navigation/app_routes.dart';
 import 'package:evently/core/services/firebase_services.dart';
 import 'package:evently/core/utils/constants/storage_keys.dart';
+import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/utils/shared_prefrences_helper.dart';
 import 'package:evently/features/add_event/presentation/manager/add_event_provider.dart';
 import 'package:evently/features/add_event/presentation/view/add_event_view.dart';
@@ -15,6 +16,8 @@ import 'package:evently/features/sign_up/presentation/manager/sign_up_provider.d
 import 'package:evently/features/sign_up/presentation/views/sign_up_view.dart';
 import 'package:evently/features/welcome/presentation/view/welcome_view.dart';
 import 'package:evently/features/event_details/presentation/view/event_details_view.dart';
+import 'package:evently/features/edit_event/presentation/manager/edit_event_provider.dart';
+import 'package:evently/features/edit_event/presentation/view/edit_event_view.dart';
 import 'package:evently/features/add_event/data/models/event_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -94,6 +97,14 @@ abstract class AppRouter {
           return MaterialPageRoute(
             builder: (context) => EventDetailsView(event: event),
           );
+        case AppRoutes.editEventView:
+          final event = routeSettings.arguments as EventModel;
+          return MaterialPageRoute(
+            builder: (context) => ChangeNotifierProvider(
+              create: (_) => EditEventProvider(event: event),
+              child: const EditEventView(),
+            ),
+          );
         case AppRoutes.welcomeView:
           return MaterialPageRoute(builder: (context) => const WelcomeView());
         default:
@@ -110,14 +121,14 @@ abstract class AppRouter {
         return Material(
           child: Container(
             color: Colors.red,
-            child: const Column(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Center(
                   child: Text(
-                    "Error! You Have Navigated To A Wrong Route. Or Navigated With Wrong Arguments",
+                    context.lan.navgationError,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 30,
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
