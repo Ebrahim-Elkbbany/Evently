@@ -895,6 +895,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Are you sure you want to delete this event?'**
   String get are_you_sure_to_delete_this_event;
+
+  /// No description provided for @no_events_found.
+  ///
+  /// In en, this message translates to:
+  /// **'No events found'**
+  String get no_events_found;
+
+  /// No description provided for @no_favourite_events_yet.
+  ///
+  /// In en, this message translates to:
+  /// **'No favourite events yet'**
+  String get no_favourite_events_yet;
 }
 
 class _AppLocalizationsDelegate

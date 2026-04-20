@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:evently/features/add_event/data/models/event_model.dart';
 import 'package:evently/features/login/data/models/sign_in_model.dart';
@@ -27,9 +29,10 @@ abstract class FirebaseServices {
     return user;
   }
 
+  static CollectionReference<Map<String, dynamic>> usersCollection = firestore
+      .collection('users');
+
   static Future<void> saveUser(UserModel userModel) async {
-    CollectionReference<Map<String, dynamic>> usersCollection = firestore
-        .collection('users');
     DocumentReference<Map<String, dynamic>> userDoc = usersCollection.doc(
       userModel.userId,
     );
@@ -37,8 +40,6 @@ abstract class FirebaseServices {
   }
 
   static Future<UserModel> getUser(String userId) async {
-    CollectionReference<Map<String, dynamic>> usersCollection = firestore
-        .collection('users');
     DocumentReference<Map<String, dynamic>> userDoc = usersCollection.doc(
       userId,
     );
@@ -99,6 +100,28 @@ abstract class FirebaseServices {
       idToken: googleAuth.idToken,
     );
     return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
+  static Future<void> updateFavorites(String eventId) async {
+    UserModel? currentUser = await getCurrentUser();
+    if (currentUser!.favorites.contains(eventId)) {
+      currentUser.favorites.remove(eventId);
+      log('removing from favourites eventId: $eventId');
+    } else {
+      currentUser.favorites.add(eventId);
+      log('adding to favourites eventId: $eventId');
+    }
+    await usersCollection.doc(currentUser.userId).update({
+      'favorites': currentUser.favorites,
+    });
+  }
+
+  static Future<List<EventModel>> getFavouriteEvents() async {
+    UserModel? currentUser = await getCurrentUser();
+    List<EventModel> allEvents = await getEvents('0');
+    return allEvents.where((event) {
+      return currentUser!.favorites.contains(event.eventId);
+    }).toList();
   }
 
   static Future<void> logout() async {

@@ -132,5 +132,7 @@
   "event_added_successfully": "تم إضافة الفعالية بنجاح",
   "event_updated_successfully": "تم تحديث الفعالية بنجاح",
   "event_deleted_successfully": "تم حذف الفعالية بنجاح",
-  "are_you_sure_to_delete_this_event": "هل أنت متأكد من حذف هذه الفعالية؟"
+  "are_you_sure_to_delete_this_event": "هل أنت متأكد من حذف هذه الفعالية؟",
+  "no_events_found": "لا توجد فعاليات حالياً",
+  "no_favourite_events_yet": "لا توجد فعاليات في المفضلة بعد"
 }

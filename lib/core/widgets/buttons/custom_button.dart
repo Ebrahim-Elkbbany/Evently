@@ -42,7 +42,9 @@ class CustomButton extends StatelessWidget {
             ? ButtonLoadingIndicator(color: context.customColors.primary)
             : Text(
                 buttonName,
-                style: textStyle ?? context.textTheme.titleLarge,
+                style:
+                    textStyle ??
+                    context.textTheme.titleLarge?.copyWith(fontSize: 18.sp),
               ),
       ),
     );

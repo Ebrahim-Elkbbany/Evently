@@ -40,7 +40,7 @@ class HomeEventsSection extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.only(top: 100.h),
                 child: Text(
-                  context.lan.noDataFound,
+                  context.lan.no_events_found,
                   style: context.textTheme.titleMedium,
                 ),
               ),

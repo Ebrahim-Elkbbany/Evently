@@ -42,15 +42,20 @@ class LoginProvider extends ChangeNotifier {
       if (userCredential.additionalUserInfo!.isNewUser == true) {
         FirebaseServices.saveUser(
           UserModel(
+            favorites: [],
             userId: userCredential.user!.uid,
             name: userCredential.user!.displayName!,
             email: userCredential.user!.email!,
           ),
         );
-       UserModel userModel = await FirebaseServices.getUser( userCredential.user!.uid);
+        UserModel userModel = await FirebaseServices.getUser(
+          userCredential.user!.uid,
+        );
         return right(userModel);
       }
-      UserModel userModel = await FirebaseServices.getUser( userCredential.user!.uid);
+      UserModel userModel = await FirebaseServices.getUser(
+        userCredential.user!.uid,
+      );
       return right(userModel);
     } on FirebaseAuthException catch (erorr) {
       return left(erorr.code);

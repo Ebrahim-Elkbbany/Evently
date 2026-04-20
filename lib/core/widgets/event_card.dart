@@ -1,12 +1,14 @@
 import 'package:evently/core/models/category_model.dart';
+import 'package:evently/core/navigation/app_routes.dart';
 import 'package:evently/core/navigation/navigation_context_extension.dart';
 import 'package:evently/core/theming/font_weight_helper.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/utils/get_date_and_month.dart';
 import 'package:evently/features/add_event/data/models/event_model.dart';
-import 'package:evently/core/navigation/app_routes.dart';
+import 'package:evently/features/favourites/manager/favourites_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 class EventCard extends StatelessWidget {
   final EventModel event;
@@ -19,89 +21,98 @@ class EventCard extends StatelessWidget {
     )[int.parse(event.categoryId)];
     return InkWell(
       onTap: () {
-        context.pushNamed(
-          AppRoutes.eventDetailsView,
-          arguments: event,
-        );
+        context.pushNamed(AppRoutes.eventDetailsView, arguments: event);
       },
       child: Card(
         child: Container(
           height: 193.h,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          image: event.imagePath.isNotEmpty
-              ? DecorationImage(
-                  image: AssetImage(
-                    context.isDark
-                        ? eventCategory.imagePathDark
-                        : eventCategory.imagePathLight,
-                  ),
-                  fit: BoxFit.cover,
-                )
-              : null,
-        ),
-        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-              decoration: BoxDecoration(
-                border: Border.all(color: context.customColors.stroke),
-                color: context.customColors.background,
-                borderRadius: BorderRadius.circular(8.r),
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    GetDateAndMonth.getDay(event.date),
-                    style: context.textTheme.titleSmall?.copyWith(
-                      color: context.customColors.primary,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            image: event.imagePath.isNotEmpty
+                ? DecorationImage(
+                    image: AssetImage(
+                      context.isDark
+                          ? eventCategory.imagePathDark
+                          : eventCategory.imagePathLight,
                     ),
-                  ),
-                  context.gapW(4),
-                  Text(
-                    GetDateAndMonth.getMonth(event.date),
-                    style: context.textTheme.titleSmall?.copyWith(
-                      color: context.customColors.primary,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const Spacer(),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-              decoration: BoxDecoration(
-                border: Border.all(color: context.customColors.stroke),
-                color: context.customColors.background,
-                borderRadius: BorderRadius.circular(8.r),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Text(
-                      event.title,
-                      style: context.textTheme.bodyLarge?.copyWith(
-                        fontWeight: FontWeightHelper.semiBold,
+                    fit: BoxFit.cover,
+                  )
+                : null,
+          ),
+          padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                decoration: BoxDecoration(
+                  border: Border.all(color: context.customColors.stroke),
+                  color: context.customColors.background,
+                  borderRadius: BorderRadius.circular(8.r),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      GetDateAndMonth.getDay(event.date),
+                      style: context.textTheme.titleSmall?.copyWith(
+                        color: context.customColors.primary,
                       ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
                     ),
-                  ),
-                  Icon(
-                    Icons.favorite_border,
-                    color: context.customColors.primary,
-                    size: 20.r,
-                  ),
-                ],
+                    context.gapW(4),
+                    Text(
+                      GetDateAndMonth.getMonth(event.date),
+                      style: context.textTheme.titleSmall?.copyWith(
+                        color: context.customColors.primary,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              const Spacer(),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                decoration: BoxDecoration(
+                  border: Border.all(color: context.customColors.stroke),
+                  color: context.customColors.background,
+                  borderRadius: BorderRadius.circular(8.r),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        event.title,
+                        style: context.textTheme.bodyLarge?.copyWith(
+                          fontWeight: FontWeightHelper.semiBold,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Consumer<FavouritesProvider>(
+                      builder: (context, favouritesProvider, child) {
+                        return InkWell(
+                          onTap: () {
+                            favouritesProvider.updateFavourites(event);
+                          },
+                          child: Icon(
+                            favouritesProvider.isEventFavourite(event.eventId)
+                                ? Icons.favorite
+                                : Icons.favorite_border,
+                            color: context.customColors.primary,
+                            size: 22.r,
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-    ));
+    );
   }
 }

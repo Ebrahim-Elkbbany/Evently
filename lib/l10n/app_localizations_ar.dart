@@ -416,4 +416,10 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get are_you_sure_to_delete_this_event =>
       'هل أنت متأكد من حذف هذه الفعالية؟';
+
+  @override
+  String get no_events_found => 'لا توجد فعاليات حالياً';
+
+  @override
+  String get no_favourite_events_yet => 'لا توجد فعاليات في المفضلة بعد';
 }

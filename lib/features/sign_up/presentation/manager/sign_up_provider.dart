@@ -21,6 +21,7 @@ class SignUpProvider extends ChangeNotifier {
           userId: userCredential.user!.uid,
           name: signUpModel.name!,
           email: userCredential.user!.email!,
+          favorites: [],
         ),
       );
       return right(null);
@@ -42,6 +43,7 @@ class SignUpProvider extends ChangeNotifier {
       if (userCredential.additionalUserInfo!.isNewUser == true) {
         FirebaseServices.saveUser(
           UserModel(
+            favorites: [],
             userId: userCredential.user!.uid,
             name: userCredential.user!.displayName!,
             email: userCredential.user!.email!,

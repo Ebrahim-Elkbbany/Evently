@@ -416,4 +416,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get are_you_sure_to_delete_this_event =>
       'Are you sure you want to delete this event?';
+
+  @override
+  String get no_events_found => 'No events found';
+
+  @override
+  String get no_favourite_events_yet => 'No favourite events yet';
 }
