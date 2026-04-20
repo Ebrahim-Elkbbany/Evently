@@ -17,4 +17,10 @@ class ProfileProvider extends ChangeNotifier {
     isLoading = false;
     notifyListeners();
   }
+
+  void reset() {
+    user = null;
+    errorMessage = null;
+    notifyListeners();
+  }
 }

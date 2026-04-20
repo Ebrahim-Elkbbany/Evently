@@ -9,6 +9,7 @@ import 'package:evently/core/widgets/text_fields/custom_password_text_field.dart
 import 'package:evently/core/widgets/text_fields/custom_text_form_field.dart';
 import 'package:evently/features/sign_up/data/models/sign_up_model.dart';
 import 'package:evently/features/sign_up/presentation/manager/sign_up_provider.dart';
+import 'package:evently/features/profile/presentation/manager/profile_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -110,6 +111,7 @@ class _SignUpFormState extends State<SignUpForm> {
                       ),
                     );
                 result.fold((error) => context.handleAuthError(error), (r) {
+                  context.read<ProfileProvider>().getUserData();
                   CustomSnackBar.show(
                     context: context,
                     message: context.lan.successfully_signed_up,

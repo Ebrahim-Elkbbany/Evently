@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'upper_text_field_text.dart';
-import 'text_field_suffix_icon.dart';
+
 import 'text_field_prefix_icon.dart';
+import 'text_field_suffix_icon.dart';
+import 'upper_text_field_text.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final String hintText;
@@ -29,6 +30,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextStyle? inputTextStyle;
   final TextStyle? hintStyle;
   final String? initialValue;
+  final void Function(String)? onChanged;
 
   const CustomTextFormField({
     super.key,
@@ -56,6 +58,7 @@ class CustomTextFormField extends StatelessWidget {
     this.inputTextStyle,
     this.hintStyle,
     this.initialValue,
+    this.onChanged,
   });
 
   @override
@@ -76,6 +79,7 @@ class CustomTextFormField extends StatelessWidget {
           initialValue: initialValue,
           obscureText: isObscureText ?? false,
           validator: validator,
+          onChanged: onChanged,
           keyboardType: keyboardType,
           textInputAction: textInputAction,
           inputFormatters: inputFormatters,

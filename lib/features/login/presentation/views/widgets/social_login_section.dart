@@ -4,6 +4,7 @@ import 'package:evently/core/utils/constants/assets_paths.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/widgets/custom_snack_bar.dart';
 import 'package:evently/features/login/presentation/manager/login_provider.dart';
+import 'package:evently/features/profile/presentation/manager/profile_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -61,6 +62,7 @@ class SocialLoginSection extends StatelessWidget {
                 }
               },
               (userModel) {
+                context.read<ProfileProvider>().getUserData();
                 CustomSnackBar.show(
                   context: context,
                   message: context.lan.successfully_logged_in,

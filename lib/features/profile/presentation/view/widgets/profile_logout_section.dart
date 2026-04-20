@@ -3,8 +3,10 @@ import 'package:evently/core/navigation/navigation_context_extension.dart';
 import 'package:evently/core/services/firebase_services.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/features/profile/presentation/view/widgets/profile_menu_item.dart';
+import 'package:evently/features/profile/presentation/manager/profile_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 class ProfileLogoutSection extends StatelessWidget {
   const ProfileLogoutSection({super.key});
@@ -19,6 +21,7 @@ class ProfileLogoutSection extends StatelessWidget {
         size: 24.r,
       ),
       onTap: () {
+        context.read<ProfileProvider>().reset();
         FirebaseServices.logout();
         context.pushNamedAndRemoveUntil(
           AppRoutes.loginView,

@@ -11,11 +11,29 @@ class FavouritesProvider extends ChangeNotifier {
   List<String> favouriteEventIds = [];
   List<EventModel> favouriteEvents = [];
   String? errorMessage;
+  String searchQuery = '';
 
   FavouritesViewState favouriteViewState = FavouritesViewState.initial;
 
   bool isEventFavourite(String eventId) {
     return favouriteEventIds.contains(eventId);
+  }
+
+  void searchFavourites(String query) {
+    searchQuery = query;
+    notifyListeners();
+  }
+
+  List<EventModel> get displayedFavouriteEvents {
+    if (searchQuery.isEmpty) {
+      return favouriteEvents;
+    }
+    return favouriteEvents
+        .where(
+          (event) =>
+              event.title.toLowerCase().contains(searchQuery.toLowerCase()),
+        )
+        .toList();
   }
 
   Future<void> updateFavourites(EventModel event) async {
