@@ -5,9 +5,7 @@ import 'package:evently/features/add_event/data/models/event_model.dart';
 import 'package:evently/features/sign_up/data/models/user_model.dart';
 import 'package:flutter/material.dart';
 
-
 enum EditEventViewState { initial, loading, success, failure }
-
 
 class EditEventProvider extends ChangeNotifier {
   final EventModel event;
