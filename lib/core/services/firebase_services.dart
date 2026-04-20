@@ -4,6 +4,7 @@ import 'package:evently/features/login/data/models/sign_in_model.dart';
 import 'package:evently/features/sign_up/data/models/sign_up_model.dart';
 import 'package:evently/features/sign_up/data/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 abstract class FirebaseServices {
   static FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -81,7 +82,19 @@ abstract class FirebaseServices {
     return doc.set(modelWithId);
   }
 
+  static Future<UserCredential> signInWithGoogle() async {
+    await GoogleSignIn.instance.initialize();
+    final googleUser = await GoogleSignIn.instance.authenticate();
+    GoogleSignInAuthentication googleAuth = googleUser.authentication;
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.idToken,
+      idToken: googleAuth.idToken,
+    );
+    return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
   static Future<void> logout() async {
     await firebaseAuth.signOut();
+    await GoogleSignIn.instance.signOut();
   }
 }

@@ -31,4 +31,34 @@ class LoginProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  Future<Either<String, UserModel>> loginWithGoogle(
+    BuildContext context,
+  ) async {
+    try {
+      isLoading = true;
+      notifyListeners();
+      UserCredential userCredential = await FirebaseServices.signInWithGoogle();
+      if (userCredential.additionalUserInfo!.isNewUser == true) {
+        FirebaseServices.saveUser(
+          UserModel(
+            userId: userCredential.user!.uid,
+            name: userCredential.user!.displayName!,
+            email: userCredential.user!.email!,
+          ),
+        );
+       UserModel userModel = await FirebaseServices.getUser( userCredential.user!.uid);
+        return right(userModel);
+      }
+      UserModel userModel = await FirebaseServices.getUser( userCredential.user!.uid);
+      return right(userModel);
+    } on FirebaseAuthException catch (erorr) {
+      return left(erorr.code);
+    } catch (e) {
+      return left(e.toString());
+    } finally {
+      isLoading = false;
+      notifyListeners();
+    }
+  }
 }
