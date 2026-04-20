@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 
 class LocalizationProvider extends ChangeNotifier {
   ThemeMode currentTheme =
-      sharedPrefsHelper.sharedPreferences.getString('theme') == 'ThemeMode.dark'
-      ? ThemeMode.dark
-      : ThemeMode.light;
+      sharedPrefsHelper.sharedPreferences.getString('theme') ==
+          'ThemeMode.light'
+      ? ThemeMode.light
+      : ThemeMode.dark;
+
   String currentLanguage =
       sharedPrefsHelper.sharedPreferences.getString('language') ?? 'en';
 
