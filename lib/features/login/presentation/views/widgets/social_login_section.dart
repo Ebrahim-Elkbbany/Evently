@@ -1,7 +1,12 @@
+import 'package:evently/core/navigation/app_routes.dart';
+import 'package:evently/core/navigation/navigation_context_extension.dart';
 import 'package:evently/core/utils/constants/assets_paths.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
+import 'package:evently/core/widgets/custom_snack_bar.dart';
+import 'package:evently/features/login/presentation/manager/login_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 class SocialLoginSection extends StatelessWidget {
   const SocialLoginSection({super.key});
@@ -36,7 +41,35 @@ class SocialLoginSection extends StatelessWidget {
         ),
         context.gapH(24),
         InkWell(
-          onTap: () {},
+          onTap: () async {
+            final result = await context.read<LoginProvider>().loginWithGoogle(
+              context,
+            );
+            result.fold(
+              (errorMessage) {
+                final errorStr = errorMessage.toString().toLowerCase();
+                if (errorStr.contains('canceled') ||
+                    errorStr.contains('cancelled') ||
+                    errorStr.contains('12501')) {
+                  return;
+                } else {
+                  CustomSnackBar.show(
+                    context: context,
+                    message: errorMessage,
+                    type: CustomSnackBarType.error,
+                  );
+                }
+              },
+              (userModel) {
+                CustomSnackBar.show(
+                  context: context,
+                  message: context.lan.successfully_logged_in,
+                  type: CustomSnackBarType.success,
+                );
+                context.pushReplacementNamed(AppRoutes.layoutView);
+              },
+            );
+          },
           borderRadius: BorderRadius.circular(16.r),
           child: Container(
             height: 48.h,

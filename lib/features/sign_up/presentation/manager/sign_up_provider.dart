@@ -34,24 +34,28 @@ class SignUpProvider extends ChangeNotifier {
     }
   }
 
-    Future<Either<String, void>> signUpWithGoogle(
-    SignUpModel signUpModel,
-  ) async {
+  Future<Either<String, UserModel>> signUpWithGoogle() async {
     try {
       isLoading = true;
       notifyListeners();
       UserCredential userCredential = await FirebaseServices.signInWithGoogle();
-      if(userCredential.additionalUserInfo!.isNewUser == false){
-        return right(null);
+      if (userCredential.additionalUserInfo!.isNewUser == true) {
+        FirebaseServices.saveUser(
+          UserModel(
+            userId: userCredential.user!.uid,
+            name: userCredential.user!.displayName!,
+            email: userCredential.user!.email!,
+          ),
+        );
+        UserModel userModel = await FirebaseServices.getUser(
+          userCredential.user!.uid,
+        );
+        return right(userModel);
       }
-      FirebaseServices.saveUser(
-        UserModel(
-          userId: userCredential.user!.uid,
-          name: signUpModel.name!,
-          email: userCredential.user!.email!,
-        ),
+      UserModel userModel = await FirebaseServices.getUser(
+        userCredential.user!.uid,
       );
-      return right(null);
+      return right(userModel);
     } on FirebaseAuthException catch (erorr) {
       return left(erorr.code);
     } catch (e) {
