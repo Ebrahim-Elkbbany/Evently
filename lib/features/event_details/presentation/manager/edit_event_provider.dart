@@ -5,17 +5,25 @@ import 'package:evently/features/add_event/data/models/event_model.dart';
 import 'package:evently/features/sign_up/data/models/user_model.dart';
 import 'package:flutter/material.dart';
 
-enum AddEventViewState { initial, loading, success, failure }
+enum EditEventViewState { initial, loading, success, failure }
 
-class AddEventProvider extends ChangeNotifier {
-  AddEventProvider();
+class EditEventProvider extends ChangeNotifier {
+  final EventModel event;
+
+  EditEventProvider({required this.event}) {
+    titleController.text = event.title;
+    descController.text = event.description;
+    selectedCategoryIndex = int.parse(event.categoryId) - 1;
+    selectedDate = DateTime.fromMillisecondsSinceEpoch(event.date);
+    selectedTime = TimeOfDay.fromDateTime(selectedDate);
+  }
 
   int selectedCategoryIndex = 0;
   final TextEditingController titleController = TextEditingController();
   final TextEditingController descController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  AddEventViewState state = AddEventViewState.initial;
+  EditEventViewState state = EditEventViewState.initial;
 
   DateTime selectedDate = DateTime.now();
   TimeOfDay selectedTime = TimeOfDay.now();
@@ -47,13 +55,13 @@ class AddEventProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<Either<Failure, String>> addEvent() async {
-    state = AddEventViewState.loading;
+  Future<Either<Failure, String>> updateEvent() async {
+    state = EditEventViewState.loading;
     notifyListeners();
     try {
       UserModel? user = await FirebaseServices.getCurrentUser();
-      final event = EventModel(
-        eventId: '',
+      final updatedEvent = EventModel(
+        eventId: event.eventId,
         userId: user!.userId,
         title: titleController.text,
         description: descController.text,
@@ -61,14 +69,12 @@ class AddEventProvider extends ChangeNotifier {
         categoryId: (selectedCategoryIndex + 1).toString(),
         imagePath: "imagePath",
       );
-
-      await FirebaseServices.addEvent(event);
-
-      state = AddEventViewState.success;
+      await FirebaseServices.updateEvent(updatedEvent);
+      state = EditEventViewState.success;
       notifyListeners();
-      return const Right('تمت إضافة الفعالية بنجاح');
+      return const Right('تم تعديل الفعالية بنجاح');
     } on Exception catch (e) {
-      state = AddEventViewState.failure;
+      state = EditEventViewState.failure;
       notifyListeners();
       return Left(Failure(errorMessage: e.toString()));
     }

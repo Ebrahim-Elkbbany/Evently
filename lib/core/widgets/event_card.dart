@@ -1,8 +1,10 @@
 import 'package:evently/core/models/category_model.dart';
+import 'package:evently/core/navigation/navigation_context_extension.dart';
 import 'package:evently/core/theming/font_weight_helper.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/utils/get_date_and_month.dart';
 import 'package:evently/features/add_event/data/models/event_model.dart';
+import 'package:evently/core/navigation/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,9 +17,16 @@ class EventCard extends StatelessWidget {
     CategoryModel eventCategory = CategoryModel.getCategoriesList(
       context,
     )[int.parse(event.categoryId)];
-    return Card(
-      child: Container(
-        height: 193.h,
+    return InkWell(
+      onTap: () {
+        context.pushNamed(
+          AppRoutes.eventDetailsView,
+          arguments: event,
+        );
+      },
+      child: Card(
+        child: Container(
+          height: 193.h,
         width: double.infinity,
         decoration: BoxDecoration(
           image: event.imagePath.isNotEmpty
@@ -93,6 +102,6 @@ class EventCard extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ));
   }
 }

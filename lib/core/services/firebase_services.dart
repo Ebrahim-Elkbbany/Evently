@@ -82,6 +82,14 @@ abstract class FirebaseServices {
     return doc.set(modelWithId);
   }
 
+  static Future<void> updateEvent(EventModel eventModel) async {
+    return eventsCollection.doc(eventModel.eventId).update(eventModel.toJson());
+  }
+
+  static Future<void> deleteEvent(String eventId) async {
+    return eventsCollection.doc(eventId).delete();
+  }
+
   static Future<UserCredential> signInWithGoogle() async {
     await GoogleSignIn.instance.initialize();
     final googleUser = await GoogleSignIn.instance.authenticate();

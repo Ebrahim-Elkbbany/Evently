@@ -129,5 +129,8 @@
   "english": "الإنجليزية",
   "arabic": "العربية",
   "meetings": "الاجتماعات",
-  "event_added_successfully": "تم إضافة الفعالية بنجاح"
+  "event_added_successfully": "تم إضافة الفعالية بنجاح",
+  "event_updated_successfully": "تم تحديث الفعالية بنجاح",
+  "event_deleted_successfully": "تم حذف الفعالية بنجاح",
+  "are_you_sure_to_delete_this_event": "هل أنت متأكد من حذف هذه الفعالية؟"
 }

@@ -406,4 +406,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get event_added_successfully => 'Event added successfully';
+
+  @override
+  String get event_updated_successfully => 'Event updated successfully';
+
+  @override
+  String get event_deleted_successfully => 'Event deleted successfully';
+
+  @override
+  String get are_you_sure_to_delete_this_event =>
+      'Are you sure you want to delete this event?';
 }
