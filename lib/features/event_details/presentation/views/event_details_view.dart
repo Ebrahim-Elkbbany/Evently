@@ -16,10 +16,12 @@ class EventDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentUser = FirebaseServices.firebaseAuth.currentUser;
     return Scaffold(
       appBar: CustomAppBar(
         title: context.lan.event_details,
         backgroundColor: context.customColors.background,
+        hasActions: event.userId == currentUser!.uid,
         actions: [
           CustomIconButton(
             onTap: () {

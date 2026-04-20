@@ -3,8 +3,13 @@ import 'package:evently/core/services/firebase_services.dart';
 import 'package:evently/core/utils/constants/storage_keys.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/utils/shared_prefrences_helper.dart';
+import 'package:evently/features/add_event/data/models/event_model.dart';
 import 'package:evently/features/add_event/presentation/manager/add_event_provider.dart';
 import 'package:evently/features/add_event/presentation/view/add_event_view.dart';
+import 'package:evently/features/event_details/presentation/manager/edit_event_provider.dart';
+import 'package:evently/features/event_details/presentation/views/edit_event_view.dart';
+import 'package:evently/features/event_details/presentation/views/event_details_view.dart';
+import 'package:evently/features/favourites/manager/favourites_provider.dart';
 import 'package:evently/features/home/presentation/manager/home_provider.dart';
 import 'package:evently/features/layout/manager/layout_provider.dart';
 import 'package:evently/features/layout/presentation/layout_view.dart';
@@ -15,10 +20,6 @@ import 'package:evently/features/onboarding/presentation/views/onboarding_view.d
 import 'package:evently/features/sign_up/presentation/manager/sign_up_provider.dart';
 import 'package:evently/features/sign_up/presentation/views/sign_up_view.dart';
 import 'package:evently/features/welcome/presentation/view/welcome_view.dart';
-import 'package:evently/features/event_details/presentation/views/event_details_view.dart';
-import 'package:evently/features/event_details/presentation/manager/edit_event_provider.dart';
-import 'package:evently/features/event_details/presentation/views/edit_event_view.dart';
-import 'package:evently/features/add_event/data/models/event_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -50,6 +51,10 @@ abstract class AppRouter {
                     providers: [
                       ChangeNotifierProvider(create: (_) => LayoutProvider()),
                       ChangeNotifierProvider(create: (_) => HomeProvider()),
+                      ChangeNotifierProvider(
+                        create: (_) =>
+                            FavouritesProvider()..getFavouriteEvents(),
+                      ),
                     ],
                     child: const LayoutView(),
                   ),
@@ -58,6 +63,9 @@ abstract class AppRouter {
           return MaterialPageRoute(
             builder: (context) => MultiProvider(
               providers: [
+                ChangeNotifierProvider(
+                  create: (_) => FavouritesProvider()..getFavouriteEvents(),
+                ),
                 ChangeNotifierProvider(create: (_) => LayoutProvider()),
                 ChangeNotifierProvider(create: (_) => HomeProvider()),
               ],

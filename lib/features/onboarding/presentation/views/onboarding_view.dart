@@ -14,7 +14,7 @@ class OnboardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = context.isDark;
+
 
     return Consumer<OnboardingProvider>(
       builder: (context, provider, child) {
