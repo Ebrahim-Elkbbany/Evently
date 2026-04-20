@@ -83,7 +83,7 @@ abstract class FirebaseServices {
   }
 
   static Future<void> updateEvent(EventModel eventModel) async {
-    return eventsCollection.doc(eventModel.eventId).set(eventModel);
+    return eventsCollection.doc(eventModel.eventId).update(eventModel.toJson());
   }
 
   static Future<void> deleteEvent(String eventId) async {

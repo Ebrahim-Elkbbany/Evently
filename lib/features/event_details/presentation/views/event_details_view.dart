@@ -6,7 +6,7 @@ import 'package:evently/core/widgets/custom_app_bar.dart';
 import 'package:evently/core/widgets/custom_icon_button.dart';
 import 'package:evently/core/widgets/custom_snack_bar.dart';
 import 'package:evently/features/add_event/data/models/event_model.dart';
-import 'package:evently/features/event_details/presentation/view/widgets/event_details_body.dart';
+import 'package:evently/features/event_details/presentation/views/widgets/event_details_body.dart';
 import 'package:flutter/material.dart';
 
 class EventDetailsView extends StatelessWidget {
@@ -62,8 +62,8 @@ class EventDetailsView extends StatelessWidget {
               onPressed: () async {
                 await FirebaseServices.deleteEvent(event.eventId);
                 if (context.mounted) {
-                  Navigator.pop(context); // Close dialog
-                  context.pop(); // Go back to home
+                  Navigator.pop(context);
+                  context.pop();
                   CustomSnackBar.show(
                     context: context,
                     message: context.lan.event_deleted_successfully,

@@ -6,6 +6,10 @@ import 'package:evently/features/add_event/presentation/manager/add_event_provid
 import 'package:evently/features/sign_up/data/models/user_model.dart';
 import 'package:flutter/material.dart';
 
+
+enum EditEventViewState { initial, loading, success, failure }
+
+
 class EditEventProvider extends ChangeNotifier {
   final EventModel event;
 
@@ -22,7 +26,7 @@ class EditEventProvider extends ChangeNotifier {
   final TextEditingController descController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  AddEventViewState state = AddEventViewState.initial;
+  EditEventViewState state = EditEventViewState.initial;
 
   DateTime selectedDate = DateTime.now();
   TimeOfDay selectedTime = TimeOfDay.now();
@@ -55,7 +59,7 @@ class EditEventProvider extends ChangeNotifier {
   }
 
   Future<Either<Failure, String>> updateEvent() async {
-    state = AddEventViewState.loading;
+    state = EditEventViewState.loading;
     notifyListeners();
     try {
       UserModel? user = await FirebaseServices.getCurrentUser();
@@ -71,11 +75,11 @@ class EditEventProvider extends ChangeNotifier {
 
       await FirebaseServices.updateEvent(updatedEvent);
 
-      state = AddEventViewState.success;
+      state = EditEventViewState.success;
       notifyListeners();
       return const Right('تم تعديل الفعالية بنجاح');
     } on Exception catch (e) {
-      state = AddEventViewState.failure;
+      state = EditEventViewState.failure;
       notifyListeners();
       return Left(Failure(errorMessage: e.toString()));
     }

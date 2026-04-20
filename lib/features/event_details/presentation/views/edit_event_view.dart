@@ -3,9 +3,8 @@ import 'package:evently/core/navigation/navigation_context_extension.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/widgets/custom_app_bar.dart';
 import 'package:evently/core/widgets/custom_snack_bar.dart';
-import 'package:evently/features/add_event/presentation/manager/add_event_provider.dart';
-import 'package:evently/features/add_event/presentation/view/widgets/event_form_body.dart';
-import 'package:evently/features/edit_event/presentation/manager/edit_event_provider.dart';
+import 'package:evently/core/widgets/event/event_form_body.dart';
+import 'package:evently/features/event_details/presentation/manager/edit_event_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -36,7 +35,7 @@ class EditEventView extends StatelessWidget {
             onDateChanged: provider.changeSelectedDate,
             onTimeChanged: provider.changeSelectedTime,
             buttonName: context.lan.update_event,
-            isLoading: provider.state == AddEventViewState.loading,
+            isLoading: provider.state == EditEventViewState.loading,
             onSubmit: () {
               if (provider.formKey.currentState!.validate()) {
                 provider.updateEvent().then((result) {

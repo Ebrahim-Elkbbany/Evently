@@ -1,5 +1,5 @@
 import 'package:evently/core/utils/extensions/context_extension.dart';
-import 'package:evently/features/add_event/presentation/view/widgets/date_time_selector_row.dart';
+import 'package:evently/core/widgets/event/date_time_selector_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';

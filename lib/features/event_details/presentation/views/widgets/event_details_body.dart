@@ -1,10 +1,10 @@
 import 'package:evently/core/models/category_model.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/features/add_event/data/models/event_model.dart';
-import 'package:evently/features/add_event/presentation/view/widgets/category_image_header.dart';
-import 'package:evently/features/event_details/presentation/view/widgets/event_date_and_time_section.dart';
-import 'package:evently/features/event_details/presentation/view/widgets/event_description_section.dart';
-import 'package:evently/features/event_details/presentation/view/widgets/event_title_section.dart';
+import 'package:evently/core/widgets/event/category_image_header.dart';
+import 'package:evently/features/event_details/presentation/views/widgets/event_date_and_time_section.dart';
+import 'package:evently/features/event_details/presentation/views/widgets/event_description_section.dart';
+import 'package:evently/features/event_details/presentation/views/widgets/event_title_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

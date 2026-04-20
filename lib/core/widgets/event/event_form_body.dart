@@ -2,9 +2,9 @@ import 'package:evently/core/models/category_model.dart';
 import 'package:evently/core/utils/extensions/context_extension.dart';
 import 'package:evently/core/widgets/buttons/custom_button.dart';
 import 'package:evently/core/widgets/custom_tab_bar.dart';
-import 'package:evently/features/add_event/presentation/view/widgets/category_image_header.dart';
-import 'package:evently/features/add_event/presentation/view/widgets/event_date_and_time.dart';
-import 'package:evently/features/add_event/presentation/view/widgets/event_form_fields.dart';
+import 'package:evently/core/widgets/event/category_image_header.dart';
+import 'package:evently/core/widgets/event/event_date_and_time.dart';
+import 'package:evently/core/widgets/event/event_form_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
