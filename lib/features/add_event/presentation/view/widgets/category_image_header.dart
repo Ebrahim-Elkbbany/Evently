@@ -4,20 +4,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryImageHeader extends StatelessWidget {
-  const CategoryImageHeader({super.key, required this.categoryIndex});
-  final int categoryIndex;
+  const CategoryImageHeader({
+    super.key,
+    required this.eventCategory,
+    this.height,
+    this.margin,
+  });
+
+  final CategoryModel eventCategory;
+  final double? height;
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {
-    CategoryModel eventCategory = CategoryModel.getCategoriesWithoutAll(
-      context,
-    )[categoryIndex];
-
     return Container(
-      height: 220.h,
-      margin: EdgeInsets.symmetric(horizontal: 16.w),
+      height: height ?? 193.h,
+      margin: margin ?? EdgeInsets.symmetric(horizontal: 16.w),
       width: double.infinity,
       decoration: BoxDecoration(
+        border: Border.all(color: context.customColors.stroke),
         color: context.customColors.inputs,
         borderRadius: BorderRadius.circular(16.r),
         image: DecorationImage(

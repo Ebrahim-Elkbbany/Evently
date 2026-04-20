@@ -14,6 +14,8 @@ import 'package:evently/features/onboarding/presentation/views/onboarding_view.d
 import 'package:evently/features/sign_up/presentation/manager/sign_up_provider.dart';
 import 'package:evently/features/sign_up/presentation/views/sign_up_view.dart';
 import 'package:evently/features/welcome/presentation/view/welcome_view.dart';
+import 'package:evently/features/event_details/presentation/view/event_details_view.dart';
+import 'package:evently/features/add_event/data/models/event_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -86,6 +88,11 @@ abstract class AppRouter {
               create: (_) => OnboardingProvider(sharedPrefsHelper),
               child: const OnboardingView(),
             ),
+          );
+        case AppRoutes.eventDetailsView:
+          final event = routeSettings.arguments as EventModel;
+          return MaterialPageRoute(
+            builder: (context) => EventDetailsView(event: event),
           );
         case AppRoutes.welcomeView:
           return MaterialPageRoute(builder: (context) => const WelcomeView());

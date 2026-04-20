@@ -37,7 +37,7 @@ class AddEventView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CategoryImageHeader(
-                    categoryIndex: provider.selectedCategoryIndex,
+                    eventCategory: categories[provider.selectedCategoryIndex],
                   ),
                   context.gapH(16),
                   CustomTabBar(

@@ -6,4 +6,5 @@ abstract class AppRoutes {
   static const layoutView = '/layoutView';
   static const addEventView = '/addEventView';
   static const onboardingView = '/onboardingView';
+  static const eventDetailsView = '/eventDetailsView';
 }
